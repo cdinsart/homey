@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  get 'desks/my_desks'
+  get 'desks/index'
+  get 'desks/show'
+  get 'desks/new'
+  get 'desks/create'
+  get 'desks/edit'
+  get 'desks/update'
+  get 'desks/destroy'
   devise_for :users
   resources :users, only: [:show]
   root to: 'pages#home'
