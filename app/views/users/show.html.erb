@@ -1,0 +1,8 @@
+<%#= cl_image_tag current_user.photo, id: "user_photo" %>
+<p>First name: <strong><%= @user.first_name.capitalize %></strong></p>
+<p>Last name: <strong><%= @user.last_name.capitalize %></strong></p>
+<p>Email: <%= @user.email %></p>
+<p>Description: <%= @user.description %></p>
+<%= link_to "Edit", edit_user_registration_path %>
+
+
