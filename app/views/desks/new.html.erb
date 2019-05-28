@@ -1,2 +1,23 @@
-<h1>Desks#new</h1>
-<p>Find me in app/views/desks/new.html.erb</p>
+<h1>List your Desk</h1>
+
+<form action="/desks" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" name="desk[title]">
+    <small id="Title" class="form-text text-muted">Don't worry we won't display the address to our users.</small>
+  </div>
+  <div class="form-group">
+    <label for="address">Full address</label>
+    <input type="text" class="form-control" id="address" placeholder="Full address" name="desk[address]">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="4" name="desk[description]"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" class="form-control" id="price" placeholder="your price" name="desk[price]">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

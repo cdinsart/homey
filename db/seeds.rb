@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "starting the seed"
+Feature.create!(name: 'wifi')
+Feature.create!(name: 'coffee')
+Feature.create!(name: 'printer')
+puts "finished the seed"
