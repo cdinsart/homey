@@ -10,6 +10,7 @@ class DesksController < ApplicationController
   end
 
   def show
+    @photos = Photo.where(desk: @desk)
     if @desk.active == false
       redirect_to root_path
       flash[:alert] = "Sorry this desk doesn't exist anymore"

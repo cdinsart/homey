@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:url)
+    params.require(:photo).permit(:data)
   end
 
   def set_desk
