@@ -15,6 +15,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+# Adding gem to display photos from cloudinary
+gem 'cloudinary', '~> 1.9.1'
+# Adding gem to upload photos and link them to a model
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
