@@ -6,7 +6,7 @@ class DesksController < ApplicationController
   end
 
   def index
-    @desks = desks.all.where(active: true)
+    @desks = Desk.all.where(active: true)
   end
 
   def show
@@ -14,6 +14,7 @@ class DesksController < ApplicationController
       redirect_to root_path
       flash[:alert] = "Sorry this desk doesn't exist anymore"
     end
+    @desk_features = @desk.desk_features
   end
 
   def new
@@ -24,7 +25,8 @@ class DesksController < ApplicationController
     @desk = Desk.new(strong_params)
     @desk.user = current_user
     if @desk.save
-      redirect_to my_desks_path
+      # redirect_to :controller => 'desk_features', :action => 'new'
+      redirect_to new_desk_desk_feature_path(@desk)
     else
       render 'new'
     end
@@ -47,7 +49,7 @@ class DesksController < ApplicationController
   private
 
   def strong_params
-    params.require(:desk).permit(:title, :address, :price, :description, :user_id)
+    params.require(:desk).permit(:title, :address, :price, :description)
   end
 
   def set_desk
