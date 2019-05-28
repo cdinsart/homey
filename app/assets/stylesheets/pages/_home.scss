@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: asset-url('computer.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.container-top {
+  text-align: center;
+  padding-top: 180px;
+}
+
+.container-top h1 {
+  color: black;
+  font-weight: bolder;
+  font-size: 27px;
+}
+
+.container-top h2 {
+  color: black;
+  font-size: 16px;
+}
