@@ -1,13 +1,43 @@
 <h1>Desks#show</h1>
 <p>Find me in app/views/desks/show.html.erb</p>
 
-<% if @photos.present? %>
-  <% @photos.each do |photo| %>
-    <%= cl_image_tag photo.data, id: "desk_photo" %>
-  <% end %>
-<% else %>
-  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
-<% end %>
+<%# if @photos.present? %>
+  <%# @photos.each do |photo| %>
+    <%#= cl_image_tag photo.data, id: "desk_photo" %>
+  <%# end %>
+<%# else %>
+  <%#= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
+<%# end %>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% if @photos.present? %>
+      <div class="carousel-item active">
+        <%= cl_image_tag @photos.first.data, class: "d-block w-100", id: "desk_photo" %>
+      </div>
+      <% @photos.drop(1).each do |photo| %>
+        <div class="carousel-item">
+          <%= cl_image_tag photo.data, class: "d-block w-100", id: "desk_photo" %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="carousel-item active">
+        <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", class: "d-block w-100", id: "desk_photo" %>
+      </div>
+      <div class="carousel-item">
+          <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559061922/fbi4cvtf8rwpsi2ic4lb.jpg", class: "d-block w-100", id: "desk_photo" %>
+        </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 <p><strong><%= @desk.title %></strong></p>
 <p>Description: <%= @desk.description %></p>
