@@ -7,6 +7,8 @@
   <%= link_to feature.name, desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), :method => :post, class:'btn btn-outline-primary'%>
   <% end %>
 <% end %>
+<br><br><br>
+<%= link_to 'Next', desk_photos_path, class: "btn btn-primary" %>
 
 
 <%#= @desk.desk_features.each do |f| %>

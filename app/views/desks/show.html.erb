@@ -1,6 +1,21 @@
 <h1>Desks#show</h1>
 <p>Find me in app/views/desks/show.html.erb</p>
 
-<%= @desk_features.each do |f| %>
-<%= f.feature.name %>
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+    <%= cl_image_tag photo.data, id: "desk_photo" %>
+  <% end %>
+<% else %>
+  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
 <% end %>
+
+<p><strong><%= @desk.title %></strong></p>
+<p>Description: <%= @desk.description %></p>
+<p>Address: <%= @desk.address %></p>
+<p>Price: <%= @desk.price %> €/day</p>
+<p>
+  Features:
+  <% @desk_features.each do |f| %>
+    <%= f.feature.name %>,
+  <% end %>
+</p>
