@@ -4,4 +4,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :desks
+  # def desks
+  #   @desks = Desk.where(user_id: self.id)
+  # end
 end

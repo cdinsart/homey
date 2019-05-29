@@ -1,5 +1,5 @@
 <h1>List your Desk</h1>
-<h2>Step 3</h2>
+<h2>Step 2</h2>
 <p>Select the amenities or your Desk</p>
 <% @features.each do |feature| %>
 <!-- <a class="btn btn-outline-primary" action="/desks/<%= @desk.id %>/desk_features" method="post" name="desk_feature[<%#= feature.id %>]"><%#= feature.name %></a> -->
@@ -11,7 +11,7 @@
         <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
         <%= feature.name %>
         </div>
-        <i class="far fa-check-circle fa-2x"></i>
+        <i class="far fa-check-circle fa-lg"></i>
       </div>
     <% end %>
   <% else %>
@@ -21,7 +21,7 @@
           <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
           <%= feature.name %>
           </div>
-          <i class="far fa-circle fa-2x"></i>
+          <i class="far fa-circle fa-lg"></i>
         </div>
       <% end %>
   <% end %>
