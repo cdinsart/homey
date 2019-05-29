@@ -1,2 +1,26 @@
-<h1>Desks#my_desks</h1>
-<p>Find me in app/views/desks/my_desks.html.erb</p>
+<div class="main-container">
+<h1>My desks</h1>
+<% @desks.each do |desk| %>
+  <% photos = Photo.where(desk: desk) %>
+  <% if photos.present? %>
+    <%= cl_image_tag photos.first.data, id: "desk_photo" %>
+  <% else %>
+    <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
+  <% end %>
+  <p><strong><%= desk.title %></strong></p>
+  <p>Description: <%= desk.description %></p>
+  <p>Address: <%= desk.address %></p>
+  <p>Price: <%= desk.price %> €/day</p>
+  <p>
+    Features:
+    <% desk.features.each do |feature| %>
+      <%= feature.name %>,
+    <% end %>
+  </p>
+  <div class="edit-delete">
+    <%= link_to 'Edit', edit_desk_path(desk), class: "btn-main"  %>
+    <%= link_to 'Delete', desk_path(desk), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login "  %>
+  </div>
+<% end %>
+
+</div>
