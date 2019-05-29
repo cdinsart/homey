@@ -1,4 +1,4 @@
 class Photo < ApplicationRecord
   belongs_to :desk
-  mount_uploader :url, PhotoUploader
+  mount_uploader :data, PhotoUploader
 end
