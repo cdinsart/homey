@@ -1,7 +1,7 @@
 class DeskFeaturesController < ApplicationController
   def new
     @desk = Desk.find(params[:desk_id])
-    @desk_feature = DeskFeature.new()
+    @desk_feature = DeskFeature.new
     @features = Feature.all
   end
 
@@ -27,4 +27,3 @@ class DeskFeaturesController < ApplicationController
     params.require(:desk_feature).permit(:value, :feature_id)
   end
 end
-
