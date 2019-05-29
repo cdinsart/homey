@@ -1,14 +1,28 @@
 .feature {
   width: 352.97px;
   height: 50px;
-  text-decoration: none;
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  margin-top: 10px;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
 }
 
-.inactive-feature {
-  background-color: white;
+.feature-link  {
+  text-decoration: none !important;
+  color: black;
 }
 
-.active-feature {
-  background-color: blue;
+.feature-link:hover  {
+  text-decoration: none !important;
+  color: black;
+}
+
+.fa-check-circle {
+  color: rgb(20, 185, 195);
+}
+
+.fa-circle {
+  color: rgba(black, 0.25);
 }
