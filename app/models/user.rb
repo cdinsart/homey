@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :desks
+  has_many :bookings
   # def desks
   #   @desks = Desk.where(user_id: self.id)
   # end

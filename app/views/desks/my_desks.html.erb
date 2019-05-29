@@ -1,6 +1,5 @@
+<div class="main-container">
 <h1>My desks</h1>
-
-<div class="container">
 <% @desks.each do |desk| %>
   <% photos = Photo.where(desk: desk) %>
   <% if photos.present? %>
