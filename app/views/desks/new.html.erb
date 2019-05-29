@@ -1,23 +1,28 @@
-<h1>List your Desk</h1>
+<div class="main-container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="form-inputs">
+        <h1>List your Desk</h1>
+          <h2 class="underline"><span>Step 1</span></h2>
+          <form action="/desks" method="post" class="form-content">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="form-box">
+              <input type="text" class="form-input" id="title" aria-describedby="emailHelp" placeholder="Title" name="desk[title]">
+            </div>
+            <!-- <small id="Title" class="form-text text-muted">Don't worry we won't display the address to our users.</small> -->
+            <div class="form-box">
+              <input type="text" class="form-input" id="address" placeholder="Full address" name="desk[address]">
 
-<form action="/desks" method="post">
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" name="desk[title]">
-    <small id="Title" class="form-text text-muted">Don't worry we won't display the address to our users.</small>
+            </div>
+            <div class="form-box-description">
+              <textarea class="form-input" placeholder="Description" id="description" rows="4" name="desk[description]"></textarea>
+            </div>
+            <div class="form-box-price">
+              <input type="number" class="form-input" id="price" placeholder="Your price" name="desk[price]">
+            </div>
+            <button type="submit" class="btn-main">NEXT > </button>
+          </form>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="address">Full address</label>
-    <input type="text" class="form-control" id="address" placeholder="Full address" name="desk[address]">
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea class="form-control" id="description" rows="4" name="desk[description]"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input type="number" class="form-control" id="price" placeholder="your price" name="desk[price]">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>

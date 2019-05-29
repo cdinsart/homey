@@ -1,9 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "components/buttons";
+@import "components/form";
 
 
 .main-container {
-  width: 95%;
-  margin: 0, auto;
+  margin-left: 10px;
+  margin-right: 10px;
   position:relative;
 }
