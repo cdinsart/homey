@@ -24,7 +24,6 @@ class DeskFeaturesController < ApplicationController
   end
 
   def strong_params
-    # raise
     params.require(:desk_feature).permit(:value, :feature_id)
   end
 end
