@@ -5,7 +5,7 @@
     <%= link_to desk_feature_path(desk_feature), :method => :delete do %>
       <div class="feature active-feature">
         <%= feature.name %>
-        <i class="fal fa-check-circle"></i>
+        <i class="far fa-check-circle"></i>
       </div>
     <% end %>
     <%#= image_tag "#{feature.name}.png" %>
@@ -13,7 +13,7 @@
     <%= link_to desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), :method => :post do %>
         <div class="feature inactive-feature">
           <%= feature.name %>
-          <i class="fal fa-circle"></i>
+          <i class="far fa-circle"></i>
         </div>
       <% end %>
   <% end %>
