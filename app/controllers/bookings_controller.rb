@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_desk, only: [:create]
 
   def index
-    @bookings = current_user.bookings
+    @guest_bookings = current_user.bookings
+    @bookings = Booking.all
   end
 
   def show
@@ -26,13 +27,13 @@ class BookingsController < ApplicationController
   def approved
     @booking.status = 'accepted'
     @booking.save
-    redirect_to desk_path(@booking.desk)
+    redirect_to bookings_path
   end
 
   def denied
     @booking.status = 'denied'
     @booking.save
-    redirect_to desk_path(@booking.desk)
+    redirect_to bookings_path
   end
 
   private

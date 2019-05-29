@@ -1,8 +1,26 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
-<% current_user.bookings.each do |booking| %>
+<h1>My Bookings</h1>
+<p>As a guest</p>
+<% @guest_bookings.each do |booking| %>
+  Desk: <%= booking.desk.title %>,
   Date: <%= booking.date %>,
   <%= booking.total_price %> €,
   Status: <%= booking.status %>
-  <br><br>
+  <br>
 <% end %>
+<br><br>
+<p>As a host</p>
+<% @bookings.each do |booking| %>
+  <% if booking.desk.user == current_user %>
+    Date: <%= booking.date %>,
+  <%= booking.total_price %> €,
+  Status: <%= booking.status %>
+  <% if booking.status == 'pending' %>
+    <%= link_to 'Accept', approved_path(booking), method: :patch, class: "btn btn-primary" %>
+    <%= link_to 'Decline', denied_path(booking), method: :patch, class: "btn btn-primary" %>
+  <% end %>
+  <br><br>
+  <% end %>
+<% end %>
+
+
+
