@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "starting the seed"
 Feature.create!(name: 'wifi')
-Feature.create!(name: 'coffee')
-Feature.create!(name: 'printer')
+Feature.create!(name: 'Coffee')
+Feature.create!(name: 'Printer')
+Feature.create!(name: 'Heater & A/C')
+Feature.create!(name: 'Kitchen')
+Feature.create!(name: 'Living Room')
+Feature.create!(name: 'Television')
+Feature.create!(name: 'Adaptors')
+Feature.create!(name: 'Table light')
+Feature.create!(name: 'Pen & Paper')
 puts "finished the seed"
