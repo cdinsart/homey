@@ -8,5 +8,5 @@ class Desk < ApplicationRecord
   validates :title, presence: true
   validates :address, presence: true
   validates :price, presence: true
-  validates :description, presence: true, length: { minimum: 10 }
+  validates :description, presence: true#, length: { minimum: 10 }
 end

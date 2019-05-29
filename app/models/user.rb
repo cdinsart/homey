@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
   has_many :desks
+  # def desks
+  #   @desks = Desk.where(user_id: self.id)
+  # end
 end

@@ -1,16 +1,32 @@
+<h1>List your Desk</h1>
+<h2>Step 2</h2>
+<p>Select the amenities or your Desk</p>
 <% @features.each do |feature| %>
 <!-- <a class="btn btn-outline-primary" action="/desks/<%= @desk.id %>/desk_features" method="post" name="desk_feature[<%#= feature.id %>]"><%#= feature.name %></a> -->
 <%#= link_to feature.name, desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), :method => :post %>
   <% if desk_feature = @desk.desk_features.find_by(feature_id: feature.id) %>
-  <%= link_to feature.name, desk_feature_path(desk_feature), :method => :delete, class:'btn btn-danger' %>
+    <%= link_to desk_feature_path(desk_feature), class: 'feature-link', :method => :delete do %>
+      <div class="feature">
+        <div>
+        <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
+        <%= feature.name %>
+        </div>
+        <i class="far fa-check-circle fa-lg"></i>
+      </div>
+    <% end %>
   <% else %>
-  <%= link_to feature.name, desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), :method => :post, class:'btn btn-outline-primary'%>
+    <%= link_to desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), class: 'feature-link', :method => :post do %>
+        <div class="feature">
+          <div>
+          <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
+          <%= feature.name %>
+          </div>
+          <i class="far fa-circle fa-lg"></i>
+        </div>
+      <% end %>
   <% end %>
 <% end %>
+
 <br><br><br>
-<%= link_to 'Next', desk_photos_path, class: "btn btn-primary" %>
+<%= link_to 'Next', desk_photos_path, class: "btn-main" %>
 
-
-<%#= @desk.desk_features.each do |f| %>
-  <%#= f.feature.name %>
-<%# end %>

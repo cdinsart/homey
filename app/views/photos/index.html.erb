@@ -1,16 +1,19 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<h1>List your Desk</h1>
+<h2>Step 3</h2>
+<p>give a little taste to your future guests!</p>
 
 <%= simple_form_for [@desk, @photo] do |f| %>
   <h3>Add photos for <%= @desk.title %></h3>
     <%= f.input :data, label: false %>
     <%= f.input :data_cache, as: :hidden %>
-    <%= f.submit 'Add photo' %>
-    <%= link_to 'Done', desk_path(@desk), class: "btn btn-primary" %>
+    <%= f.button :submit, 'Add photo', class: "btn-login" %>
+    <br>
+    <br>
+    <%= link_to 'Next', desk_path(@desk), class: "btn-main" %>
 <% end %>
 
 <% @photos.each do |photo| %>
   <%= cl_image_tag photo.data, id: "desk_photo" %>
-  <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-primary" %>
+  <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login" %>
 <% end %>
 
