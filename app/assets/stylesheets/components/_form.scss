@@ -1,0 +1,59 @@
+.form-box {
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  margin-top: 23px;
+}
+
+.form-box-price {
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  margin-top: 23px;
+}
+
+.underline span {
+  border-bottom: 4px solid #14B9C3;
+}
+
+.form-content {
+  margin-top: 30px;
+}
+
+.form-input {
+  border: none;
+  width: 100%;
+}
+
+.form-control.price {
+  border: none;
+  width: 50%;
+}
+
+
+.form-inputs h1 {
+  font-size: 27px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.form-inputs h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.form-box-price {
+  width: 50%;
+}
+
+input {
+  padding: 20px;
+}
+
+.form-box-description {
+  height: 120px;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  margin-top: 23px;
+}
+
+textarea::placeholder {
+  padding: 15px;
+}
+
