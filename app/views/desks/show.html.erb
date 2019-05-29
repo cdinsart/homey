@@ -1,14 +1,6 @@
 <h1>Desks#show</h1>
 <p>Find me in app/views/desks/show.html.erb</p>
 
-<%# if @photos.present? %>
-  <%# @photos.each do |photo| %>
-    <%#= cl_image_tag photo.data, id: "desk_photo" %>
-  <%# end %>
-<%# else %>
-  <%#= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
-<%# end %>
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% if @photos.present? %>
@@ -47,18 +39,19 @@
 <p>
   Features:
   <% @desk_features.each do |f| %>
-    <%= f.feature.name %>,
+    <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
   <% end %>
 </p>
 
   <% if @desk.user != current_user %>
       <%= simple_form_for [@desk, @booking] do |f| %>
       <div class="d-flex flex-row">
-        <%= f.input :date, as: :string, label: false, required: false, input_html: { class: "datepicker", style: "max-width: 300px" }, placeholder: "19 Jan" %>
+        <%= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker", style: "max-width: 300px" }, placeholder: "19 Jan" %>
         <div class="timeslots">
           <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot-active"}, required: false %>
         </div>
-        <div class="timeslots"> <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot-active"}, required: false %>
+        <div class="timeslots">
+          <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot-active"}, required: false %>
         </div>
         <%= f.button :submit, class: "btn-primary ml-2 mb-3", value: "Book | #{@desk.price} €" %>
       <% end %>
