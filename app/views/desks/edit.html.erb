@@ -1,2 +1,10 @@
-<h1>Desks#edit</h1>
-<p>Find me in app/views/desks/edit.html.erb</p>
+<%= simple_form_for @desk do |f| %>
+<h3>Edit <%= @desk.title %></h3>
+<p><%= f.input :title%></p>
+<p><%= f.input :address%></p>
+<p><%= f.input :price%></p>
+<p><%= f.input :description%></p>
+<p><%= f.button :submit, class: "btn-main" %></p>
+<!-- Can I also add some new pictures in the same form ? -->
+<% end %>
+<%= link_to 'Back', my_desks_path(@desk), class: "btn-login" %>
