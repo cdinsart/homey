@@ -5,18 +5,18 @@
 }
 
 .navbar img {
-  width: 40px;
+  width: 45px;
 }
 
 .btn-list-desk {
   background-color: $homey;
   color: white;
-  padding: 10px 20px;
+  padding: 10px;
   text-decoration: none !important;
 }
 
 .btn-login {
-  border: 1px solid #14B9C3;
+  border: 1px solid $homey;
   color: black;
   padding: 9px 20px;
   margin-right: 20px;
@@ -25,5 +25,5 @@
 
 .avatar {
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 5px;
 }

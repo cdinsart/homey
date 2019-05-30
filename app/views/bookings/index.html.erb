@@ -1,5 +1,6 @@
+<div class="main-container">
 <h1>My Bookings</h1>
-<p>As a guest</p>
+<h2 class="underline"><span>As a guest</span></p>
 <% @guest_bookings.each do |booking| %>
   Desk: <%= booking.desk.title %>,
   Date: <%= booking.date %>,
@@ -28,3 +29,4 @@
 <div class="status-pending">Pending</div>
 <div class="btn-review">Leave a review</div>
 
+</div>

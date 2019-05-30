@@ -9,7 +9,8 @@
 }
 
 .underline span {
-  border-bottom: 4px solid #14B9C3;
+  border-bottom: 4px solid $homey;
+  margin-bottom: 20px;
 }
 
 .form-content {
@@ -56,4 +57,3 @@ input {
 textarea::placeholder {
   padding: 15px;
 }
-

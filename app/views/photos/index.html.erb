@@ -1,19 +1,22 @@
-<h1>List your Desk</h1>
-<h2>Step 3</h2>
-<p>give a little taste to your future guests!</p>
+<div class="main-container">
+  <h1>List your Desk</h1>
+  <div class="form-inputs">
+    <h2 class="underline"><span>Step 3</span></h2>
+    <h3>Give a little taste to your future guests!</h3>
 
-<%= simple_form_for [@desk, @photo] do |f| %>
-  <h3>Add photos for <%= @desk.title %></h3>
-    <%= f.input :data, label: false %>
+    <%= simple_form_for [@desk, @photo] do |f| %>
+    <p>Add photos for <%= @desk.title %></p>
+    <%= f.input_field :data, label: false %>
     <%= f.input :data_cache, as: :hidden %>
     <%= f.button :submit, 'Add photo', class: "btn-login" %>
     <br>
     <br>
-    <%= link_to 'Next', desk_path(@desk), class: "btn-main" %>
-<% end %>
+    <%= link_to 'NEXT >', desk_path(@desk), class: "btn-main" %>
+    <% end %>
 
-<% @photos.each do |photo| %>
-  <%= cl_image_tag photo.data, id: "desk_photo" %>
-  <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login" %>
-<% end %>
-
+    <% @photos.each do |photo| %>
+    <%= cl_image_tag photo.data, id: "desk_photo" %>
+    <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login" %>
+    <% end %>
+  </div>
+</div>

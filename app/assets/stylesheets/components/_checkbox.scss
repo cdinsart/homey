@@ -4,7 +4,7 @@
   width: 200px;
 }
 .timeslot-active {
-  background-color: #14B9C3;
+  background-color: $homey;
   color: white !important;
   width: 100%;
   text-decoration: none;
@@ -18,7 +18,7 @@
 }
 
 .btn-primary.ml-2.mb-3 {
-  background-color: #14B9C3;
+  background-color: $homey;
   color: white;
   padding: 15px 30px;
   text-decoration: none !important;
