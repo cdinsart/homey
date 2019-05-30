@@ -5,23 +5,35 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
+  position: relative;
 }
 
-.container-top {
+.banner-content {
   text-align: center;
   padding-top: 180px;
 }
 
-.container-top h1 {
+.banner-content h1 {
   color: black;
   font-weight: bolder;
   font-size: 27px;
 }
 
-.container-top h2 {
+.banner-content h2 {
   color: black;
   font-size: 16px;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
+
+.search-box {
+  position: absolute;
+  top: 460px;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.search-bar {
+  width: 100%;
+ }
