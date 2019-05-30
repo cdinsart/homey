@@ -13,7 +13,28 @@
    position: absolute;
 }
 
+.desk-card {
+  background-color: white;
+  margin-top: 18px;
+}
+
 .content {
   margin-bottom: 8px;
   margin-top: 8px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+#card-title{
+  font-style: $headers-font;
+}
+
+#card-address {
+  font-style: $body-font;
+}
+
+.link-to-card:hover {
+  text-decoration: none;
 }
