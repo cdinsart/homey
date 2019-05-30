@@ -16,6 +16,7 @@
 .desk-card {
   background-color: white;
   margin-top: 18px;
+  position: relative;
 }
 
 .content {
@@ -27,14 +28,34 @@
   flex-direction: column;
 }
 
-#card-title{
-  font-style: $headers-font;
-}
-
-#card-address {
-  font-style: $body-font;
-}
-
 .link-to-card:hover {
   text-decoration: none;
+}
+
+.price-tag-wrap {
+  position: absolute;
+  top: 0px;
+  right: 37px;
+}
+
+.price-tag {
+  position: relative;
+  width: 0px;
+  height: 0px;
+  border-right: 29px solid $homey;
+  border-top: 60px solid $homey;
+  border-left: 29px solid $homey;
+  border-bottom: 16px solid transparent;
+}
+
+.price-tag-content {
+  position: absolute;
+  top: -50px;
+  right: -17px;
+  text-align: center;
+  color: white;
+}
+
+.price-tag-content h3,p {
+  margin: 0;
 }
