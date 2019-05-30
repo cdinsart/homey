@@ -1,7 +1,28 @@
+.booking_date {
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  margin-top: 23px;
+  width: 200px;
+}
 .timeslot-active {
-  background-color: blue;
+  background-color: #14B9C3;
+  color: white !important;
+  width: 100%;
+  text-decoration: none;
+  padding: 20px;
+  margin-top: 23px;
+  font-weight: bold;
 }
 
 .hidden {
   display: none;
+}
+
+.btn-primary.ml-2.mb-3 {
+  background-color: #14B9C3;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none !important;
+  margin-top: 23px;
+  font-weight: bold;
+  border: none;
 }
