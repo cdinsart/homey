@@ -1,6 +1,6 @@
 <div class="main-container">
 <h1>Desks</h1>
-<p><%= @desks.count %> results in --City--</p>
+<p><%= @desks.length %> results in --City--</p>
   <% @desks.each do |desk| %>
     <div id="carouselExampleControls-<%= desk.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner">

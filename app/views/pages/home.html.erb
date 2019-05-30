@@ -4,31 +4,18 @@
     <h2>Find and book a private workspace near you, from people like you</h2>
   </div>
 
-    <form class="search-box">
-      <input type="text" class="search-bar" name="location" placeholder="Enter your location...">
-
-      <input type="text" class="search-bar" name="location" placeholder="Enter your date...">
-
+    <form class="search-box" method="get" action="/desks">
+      <input type="text" class="search-bar" id="desk_address" name="location" placeholder="Enter your location...">
+      <div class="search-box-line2">
+        <input type="date" class="search-bar datepicker" name="date" placeholder="19 Jan">
+        <input type="checkbox" class="hidden" id="am" value="am" checked>
+        <label for="am" class="timeslot-active">AM</label>
+        <input type="checkbox" class="hidden" id="pm" value="pm" checked>
+        <label for="pm" class="timeslot-active">PM</label>
+        <button type="submit" class="btn-main">
+          SEARCH
+        </button>
+      </div>
     </form>
 
 </div>
-
-       <!--  <input type="date" class="datepicker" name="location" placeholder="Enter date">
-        <input type="boolean" class="" name="location" placeholder="Enter your location...">
-        <input type="boolean" class="" name="location" placeholder="Enter your location...">
-        <input type="submit" value="Search Now" class="btn-main-sm"> -->
-
-
- <!--  <div class="d-flex flex-row">
-    <%#= f.input :address, label: false %>
-    <%#= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker", style: "max-width: 300px" }, placeholder: "19 Jan" %>
-    <div class="timeslots">
-        <%#= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot-active"}, required: false %>
-    </div>
-    <div class="timeslots">
-        <%#= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot-active"}, required: false %>
-    </div>
-        <%#= f.button :submit, class: "btn-primary ml-2 mb-3", value: "Book | #{@desk.price} €" %>
-    <%# end %>
-</div>
- -->
