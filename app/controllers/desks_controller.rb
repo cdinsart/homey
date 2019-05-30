@@ -1,13 +1,18 @@
 class DesksController < ApplicationController
   before_action :set_desk, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def my_desks
     @desks = current_user.desks.where(active: true)
   end
 
   def index
-    @desks = Desk.all.where(active: true)
     @photos = Photo.where(desk: @desk)
+    if params[:location].present?
+      @desks = Desk.near(params[:location], 100).where(active: true)
+    else
+      @desks = Desk.where(active: true)
+    end
   end
 
   def show

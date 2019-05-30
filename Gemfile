@@ -19,6 +19,8 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 # Adding gem to upload photos and link them to a model
 gem 'carrierwave', '~> 1.2'
+# Search by location
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
