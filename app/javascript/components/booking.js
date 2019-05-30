@@ -2,7 +2,7 @@ const toggleTimeSlot = () => {
   const timeslots = document.querySelectorAll('.timeslots label');
   [...timeslots].forEach((timeslot) => timeslot.addEventListener(
     'click',
-    function () { this.classList.toggle('timeslot-active') }
+    function () { this.classList.toggle('active') }
   ))
 };
 

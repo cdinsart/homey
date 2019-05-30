@@ -46,10 +46,10 @@
       <div class="d-flex flex-row">
         <%= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker", style: "max-width: 300px" }, placeholder: "19 Jan" %>
         <div class="timeslots">
-          <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot-active"}, required: false %>
+          <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot active"}, required: false %>
         </div>
         <div class="timeslots">
-          <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot-active"}, required: false %>
+          <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot active"}, required: false %>
         </div>
         <%= f.button :submit, class: "btn-primary ml-2 mb-3", value: "Book | #{@desk.price} €" %>
       <% end %>
