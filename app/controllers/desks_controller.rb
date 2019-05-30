@@ -23,6 +23,12 @@ class DesksController < ApplicationController
       flash[:alert] = "Sorry this desk doesn't exist anymore"
     end
     @desk_features = @desk.desk_features
+    @markers = [{
+      lat: @desk.latitude,
+      lng: @desk.longitude,
+      infoWindow: render_to_string(partial: "infowindow", locals: { desk: @desk }),
+      image_url: helpers.asset_url('map_pin.png')
+    }]
   end
 
   def new

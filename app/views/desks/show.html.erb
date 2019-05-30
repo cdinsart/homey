@@ -29,17 +29,27 @@
   </a>
 </div>
 <div class="main-container">
-<p><strong><%= @desk.title %></strong></p>
-<p>Description: <%= @desk.description %></p>
-<p>Host: <strong><%= @desk.user.first_name.capitalize %> <%= @desk.user.last_name.capitalize %></strong></p>
-<p>Address: <%= @desk.address %></p>
-<p>Price: <%= @desk.price %> €/day</p>
-<p>
-  Features:
-  <% @desk_features.each do |f| %>
-    <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
-  <% end %>
-</p>
+  <p><strong><%= @desk.title %></strong></p>
+  <p>Description: <%= @desk.description %></p>
+  <p>Host: <strong><%= @desk.user.first_name.capitalize %> <%= @desk.user.last_name.capitalize %></strong></p>
+  <p>Address: <%= @desk.address %></p>
+  <p>Price: <%= @desk.price %> €/day</p>
+  <p>
+    Features:
+    <% @desk_features.each do |f| %>
+      <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
+    <% end %>
+  </p>
+  <h3>Location</h3>
+  <div class="column"
+    id="map"
+    style="width: 100%;
+    height: 60vh;
+    position: sticky;
+    top: 0;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
   <% if @desk.user != current_user %>
       <%= simple_form_for [@desk, @booking] do |f| %>
