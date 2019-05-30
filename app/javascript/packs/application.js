@@ -9,6 +9,10 @@ import { initTyped } from '../plugins/init_typed';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { initMapbox } from '../plugins/init_mapbox';
+
 initTyped();
 
 initAutocomplete();
@@ -17,3 +21,5 @@ toggleTimeSlot()
 flatpickr(".datepicker", {
 
 });
+
+initMapbox();

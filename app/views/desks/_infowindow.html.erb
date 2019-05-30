@@ -1,0 +1,11 @@
+<% if desk.photos.present? %>
+  <%= cl_image_tag desk.photos.first.data, id: "photo-popup" %>
+<% else %>
+  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "photo-popup" %>
+<% end %>
+<p>
+  Host:
+  <strong><%= desk.user.first_name.capitalize %></strong>
+  <strong><%= desk.user.last_name.capitalize %></strong>
+</p>
+<p><%= desk.price %> €/day</p>

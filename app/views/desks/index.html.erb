@@ -58,7 +58,7 @@
               </div>
             </div>
               <% if desk.user.photo.present? %>
-                <%= cl_image_tag desk.user.photo, id: "user_photo" %>
+                <%= cl_image_tag desk.user.photo, class: "avatar-large mr-3" %>
               <% else %>
                 <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large mr-3"%>
               <% end %>
