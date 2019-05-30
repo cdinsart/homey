@@ -3,6 +3,7 @@ class Desk < ApplicationRecord
   has_many :desk_features, dependent: :destroy
   has_many :features, through: :desk_features
   has_many :desks
+  has_many :photos
 
   # basic validation
   validates :title, presence: true
