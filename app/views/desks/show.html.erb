@@ -1,5 +1,3 @@
-<h1>Desks#show</h1>
-<p>Find me in app/views/desks/show.html.erb</p>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -30,7 +28,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+<div class="main-container">
 <p><strong><%= @desk.title %></strong></p>
 <p>Description: <%= @desk.description %></p>
 <p>Host: <strong><%= @desk.user.first_name.capitalize %> <%= @desk.user.last_name.capitalize %></strong></p>
@@ -57,4 +55,4 @@
       <% end %>
       </div>
   <% end %>
-
+</div>
