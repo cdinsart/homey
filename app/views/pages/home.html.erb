@@ -8,10 +8,14 @@
       <input type="text" class="search-bar" id="desk_address" name="location" placeholder="Enter your location...">
       <div class="search-box-line2">
         <input type="date" class="search-bar datepicker" name="date" placeholder="19 Jan">
-        <input type="checkbox" class="hidden" id="am" value="am" checked>
-        <label for="am" class="timeslot-active">AM</label>
-        <input type="checkbox" class="hidden" id="pm" value="pm" checked>
-        <label for="pm" class="timeslot-active">PM</label>
+        <div class="timeslots">
+          <input type="checkbox" class="hidden" id="am" value="am" checked>
+          <label for="am" class="timeslot-active">AM</label>
+        </div>
+        <div class="timeslots">
+          <input type="checkbox" class="hidden" id="pm" value="pm" checked>
+          <label for="pm" class="timeslot-active">PM</label>
+        </div>
         <button type="submit" class="btn-main">
           SEARCH
         </button>
