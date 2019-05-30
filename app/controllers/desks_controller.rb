@@ -7,6 +7,7 @@ class DesksController < ApplicationController
 
   def index
     @desks = Desk.all.where(active: true)
+    @photos = Photo.where(desk: @desk)
   end
 
   def show
