@@ -9,6 +9,10 @@
   box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
 }
 
+#select-features {
+  margin-top: 16px;
+}
+
 .feature-link  {
   text-decoration: none !important;
   color: black;
@@ -20,7 +24,7 @@
 }
 
 .fa-check-circle {
-  color: rgb(20, 185, 195);
+  color: $homey;
 }
 
 .fa-circle {
@@ -31,5 +35,4 @@
   width: 40px;
   padding-right: 15px;
 }
-
 

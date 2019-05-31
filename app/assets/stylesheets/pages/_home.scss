@@ -32,17 +32,29 @@
   top: 460px;
   width: 100%;
   padding: 0px 10px;
-}
-
-.search-box-line2 {
-  display: flex;
-  justify-content: space-between;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  border: none;
 }
 
 .search-bar {
   width: 100%;
+  height: 60px !important;
  }
 
  .ampm {
   color: black;
  }
+
+.datepicker {
+  padding: 15px;
+  width: 25%;
+  border: 1px solid lightgrey;
+  margin-top: 10px;
+  height: 56px;
+}
+
+.search-criteria {
+  display: flex;
+  justify-content: space-between;
+}
+

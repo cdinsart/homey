@@ -4,21 +4,28 @@
   width: 100%;
   text-decoration: none !important;
   padding: 20px;
-  margin-top: 23px;
+  margin-top: 18px;
   font-weight: bold;
   display: block;
   text-align: center;
+  border: none !important;
 }
 
+.btn-main:hover {
+  color: white;
+}
 
 .btn-main-sm {
   background-color: $homey;
   color: white;
   padding: 15px 30px;
   text-decoration: none !important;
-  margin-top: 23px;
+  margin-top: 10px;
   font-weight: bold;
+  height: 56px;
+  border: 0;
 }
+
 
 .status-accepted {
   color: $homey;

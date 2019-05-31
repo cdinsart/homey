@@ -28,28 +28,60 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<div class="price-tag-wrap-show">
+              <div class="price-tag">
+                <div class="price-tag-content">
+                  <h3><%= @desk.price %>€</h3>
+                  <p>/Day</p>
+                </div>
+              </div>
+            </div>
 <div class="main-container">
-  <p><strong><%= @desk.title %></strong></p>
-  <p>Description: <%= @desk.description %></p>
-  <p>Host: <strong><%= @desk.user.first_name.capitalize %> <%= @desk.user.last_name.capitalize %></strong></p>
-  <p>Address: <%= @desk.address %></p>
-  <p>Price: <%= @desk.price %> €/day</p>
-  <p>
-    Features:
-    <% @desk_features.each do |f| %>
-      <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
+  <div class="desk-content">
+
+      <h1 class ="underline">
+        <span>
+        <%= @desk.title %>
+        </span>
+      </h1>
+    <p><%= @desk.address %></p>
+    <p id="desk-description"><%= @desk.description %></p>
+    <div class="rating">
+      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    </div>
+  </div>
+  <div class="desk-feature">
+    <p>
+       <h3>Features</h3>
+      <% @desk_features.each do |f| %>
+        <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
+      <% end %>
+    </p>
+  </div>
+  <div class="desk-host">
+    <h3>Your host</h3>
+    <div class="d-flex">
+    <% if @desk.user.photo.present? %>
+      <%= @desk.user.photo %>
+    <% else %>
+      <%#= image_tag "homeylogo.png", class: "logo"%>
     <% end %>
-  </p>
-  <h3>Location</h3>
-  <div class="column"
-    id="map"
-    style="width: 100%;
-    height: 60vh;
-    position: sticky;
-    top: 0;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+    <p><%= @desk.user.first_name.capitalize %></p>
+    </div>
+    <p><%= @desk.user.description %></p>
+  </div>
+  <div class="desk-location">
+    <h3>Location</h3>
+      <div class="column"
+        id="map"
+        style="width: 100%;
+        height: 60vh;
+        position: sticky;
+        top: 0;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+  </div>
 
   <% if @desk.user != current_user %>
       <%= simple_form_for [@desk, @booking] do |f| %>
@@ -61,7 +93,7 @@
         <div class="timeslots">
           <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot active"}, required: false %>
         </div>
-        <%= f.button :submit, class: "btn-primary ml-2 mb-3", value: "Book | #{@desk.price} €" %>
+        <%= f.button :submit, class: "btn-main-sm ml-2 mb-3", value: "Book | #{@desk.price} €" %>
       <% end %>
       </div>
   <% end %>
