@@ -60,13 +60,13 @@
   </div>
   <div class="desk-host">
     <h3>Your host</h3>
-    <div class="d-flex">
-    <% if @desk.user.photo.present? %>
-      <%= @desk.user.photo %>
-    <% else %>
-      <%#= image_tag "homeylogo.png", class: "logo"%>
-    <% end %>
-    <p><%= @desk.user.first_name.capitalize %></p>
+    <div class="host ml-2">
+      <% if @desk.user.photo.present? %>
+        <%= cl_image_tag @desk.user.photo, class: "avatar-large mr-3" %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large mr-3"%>
+      <% end %>
+      <p><%= @desk.user.first_name.capitalize %></p>
     </div>
     <p><%= @desk.user.description %></p>
   </div>
