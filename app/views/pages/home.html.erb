@@ -23,3 +23,118 @@
     </form>
 
 </div>
+
+<div class="card-home-grid">
+    <div class="card-home">
+      <% if Desk.last.photos.present? %>
+        <div class="card-home-img" style="background-image: url('<%= cl_image_path Desk.last.photos.first.data %>');">
+          <% if Desk.last.user.photo.present? %>
+            <%= cl_image_tag Desk.last.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card-home-img" style="background-image: url(<%= image_path 'desk.jpeg' %>);">
+          <% if Desk.last.user.photo.present? %>
+            <%= cl_image_tag Desk.last.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% end %>
+        <div class="card-home-body">
+            <h3><%= Desk.last.title %></h3>
+            <div class="card-home-footer">
+                <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+                <p><%= Desk.last.price %> €/day</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-home">
+      <% if Desk.first.photos.present? %>
+        <div class="card-home-img" style="background-image: url('<%= cl_image_path Desk.first.photos.first.data %>');">
+          <% if Desk.first.user.photo.present? %>
+            <%= cl_image_tag Desk.first.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card-home-img" style="background-image: url(<%= image_path 'desk.jpeg' %>);">
+          <% if Desk.first.user.photo.present? %>
+            <%= cl_image_tag Desk.first.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% end %>
+        <div class="card-home-body">
+            <h3><%= Desk.first.title %></h3>
+            <div class="card-home-footer">
+                <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+                <p><%= Desk.first.price %> €/day</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-home">
+      <% if Desk.last.photos.present? %>
+        <div class="card-home-img" style="background-image: url('<%= cl_image_path Desk.last.photos.first.data %>');">
+          <% if Desk.last.user.photo.present? %>
+            <%= cl_image_tag Desk.last.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card-home-img" style="background-image: url(<%= image_path 'desk.jpeg' %>);">
+          <% if Desk.last.user.photo.present? %>
+            <%= cl_image_tag Desk.last.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% end %>
+        <div class="card-home-body">
+            <h3><%= Desk.last.title %></h3>
+            <div class="card-home-footer">
+                <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+                <p><%= Desk.last.price %> €/day</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-home">
+      <% if Desk.first.photos.present? %>
+        <div class="card-home-img" style="background-image: url('<%= cl_image_path Desk.first.photos.first.data %>');">
+          <% if Desk.first.user.photo.present? %>
+            <%= cl_image_tag Desk.first.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card-home-img" style="background-image: url(<%= image_path 'desk.jpeg' %>);">
+          <% if Desk.first.user.photo.present? %>
+            <%= cl_image_tag Desk.first.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% end %>
+        <div class="card-home-body">
+            <h3><%= Desk.first.title %></h3>
+            <div class="card-home-footer">
+                <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+                <p><%= Desk.first.price %> €/day</p>
+            </div>
+        </div>
+    </div>
+</div>
