@@ -5,7 +5,7 @@
 
     <div class="navbar-buttons d-flex">
       <% if user_signed_in? %>
-        <%= link_to "List your desk", new_desk_path, class: "btn-list-desk" %>
+        <%= link_to "Add a desk", new_desk_path, class: "btn-list-desk" %>
       <div class="avatar">
         <% if current_user.photo.present? %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -21,7 +21,7 @@
         </div>
       <% else %>
       <%= link_to "Login", new_user_session_path, class: "btn-login" %>
-      <%= link_to "List your desk", new_user_session_path, class: "btn-list-desk" %>
+      <%= link_to "Add a desk", new_user_session_path, class: "btn-list-desk" %>
       <% end %>
       </div>
     </div>
