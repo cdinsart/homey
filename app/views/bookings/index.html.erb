@@ -1,6 +1,6 @@
 <div class="main-container">
 <h1>My Bookings</h1>
-<h2 class="underline"><span>As a guest</span></p>
+<h2 class="underline"><span>As a guest</span></h2>
 <% @guest_bookings.each do |booking| %>
   Desk: <%= booking.desk.title %>,
   Date: <%= booking.date %>,
@@ -9,7 +9,7 @@
   <br>
 <% end %>
 <br><br>
-<p>As a host</p>
+<h2 class="underline"><span>As a host</span></h2>
 <% @bookings.each do |booking| %>
   <% if booking.desk.user == current_user %>
     Date: <%= booking.date %>,
