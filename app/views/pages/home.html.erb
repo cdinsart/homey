@@ -22,3 +22,37 @@
       </div>
     </form>
 </div>
+
+<div class="card-home-grid">
+  <% @desks.each do |desk| %>
+
+    <div class="card-home">
+      <% if desk.photos.present? %>
+        <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
+          <% if desk.user.photo.present? %>
+            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% else %>
+        <div class="card-home-img" style="background-image: url(<%= image_path 'desk.jpeg' %>);">
+          <% if desk.user.photo.present? %>
+            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+          <% else %>
+            <img src="buser.png" alt="" class="avatar avatar-position">
+          <% end %>
+        </div>
+      <% end %>
+        <div class="card-home-body">
+            <h3><%= desk.title %></h3>
+            <div class="card-home-footer">
+                <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+                <p><%= desk.price %> €/day</p>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>
