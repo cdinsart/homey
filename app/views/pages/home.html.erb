@@ -6,8 +6,8 @@
 
     <form class="search-box" method="get" action="/desks">
       <input type="text" class="search-bar" id="address" name="location" placeholder="Enter your location...">
-      <div class="search-box-line2">
-        <input type="date" class="search-bar datepicker" name="date" placeholder="19 Jan">
+      <div class="search-criteria">
+        <input type="date" class="datepicker" name="date" placeholder="date" value="04/03/3094">
         <div class="timeslots">
           <input type="checkbox" class="hidden" id="am" value="am" checked>
           <label for="am" class="timeslot active">AM</label>
@@ -16,10 +16,9 @@
           <input type="checkbox" class="hidden" id="pm" value="pm" checked>
           <label for="pm" class="timeslot active">PM</label>
         </div>
-        <button type="submit" class="btn-main">
+        <button type="submit" class="btn-main-sm">
           SEARCH
         </button>
       </div>
     </form>
-
 </div>

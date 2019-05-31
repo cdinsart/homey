@@ -5,14 +5,15 @@
 }
 
 
-.timeslot {
+.timeslots label {
   width: 100%;
   text-decoration: none;
-  padding: 20px;
-  margin-top: 23px;
+  padding: 15px;
+  margin-top: 10px;
   font-weight: bold;
   border: 1px solid $homey;
   color: $homey !important;
+  text-align: center;
 
   transition: 0.1s ease all;
   &.active {
@@ -25,12 +26,10 @@
   display: none;
 }
 
-.btn-primary.ml-2.mb-3 {
-  background-color: $homey;
-  color: white;
-  padding: 15px 30px;
-  text-decoration: none !important;
-  margin-top: 23px;
-  font-weight: bold;
-  border: none;
+label {
+  margin-bottom: none !important;
+}
+
+.timeslots {
+  width: 60px;
 }
