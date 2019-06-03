@@ -71,3 +71,29 @@
 .price-tag-content h3,p {
   margin: 0;
 }
+
+
+.my-desk-card {
+  background-color: white;
+  margin-top: 18px;
+  position: relative;
+}
+
+.edit-delete {
+  position: absolute;
+  top: 303px;
+  right: 2px;
+}
+
+#btn-login-edit {
+  margin: 25px;
+}
+
+.pencil-edit {
+  width: 25px;
+
+}
+
+.bin-delete {
+  width: 25px;
+}
