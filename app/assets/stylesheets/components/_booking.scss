@@ -1,6 +1,7 @@
 .card-booking {
   display: flex;
   // justify-content: space-between;
+  padding: 2px;
 }
 
 #desk-thumbnail {
@@ -9,6 +10,25 @@
 }
 
 .booking-summary {
-  padding-left: 10px;
-  padding-right: 5px;
+  padding-left: 6px;
+  padding-right: 0px;
+  margin-right: 0px;
+  width: 114px;
+}
+
+.right {
+  margin-right: 0px;
+  padding-right: 0px;
+  margin-left: auto;
+  margin-top: 0px;
+  padding-top: 0px;
+  text-align: right;
+}
+
+.subchapter {
+  padding-top: 6px;
+}
+
+.host {
+  padding-top: 5px;
 }
