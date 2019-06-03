@@ -30,7 +30,8 @@
   color: $homey;
   padding: 5px;
   width: 95px;
-  text-align: center;
+  text-align: right;
+  margin-bottom: 15px;
 }
 
 .btn-accept {
@@ -39,14 +40,15 @@
   padding: 5px;
   width: 95px;
   text-align: center;
+  font-size: smaller;
 }
 
 .status-declined {
   color: red;
   padding: 5px;
   width: 95px;
-  margin-top: 20px;
-  text-align: center;
+  // margin-top: 20px;
+  text-align: right;
 }
 
 .btn-decline {
@@ -56,24 +58,29 @@
   width: 95px;
   margin-top: 20px;
   text-align: center;
+  font-size: smaller;
 }
 
 
 .status-pending {
-  color: #ffe837;
-  border: 1px solid #ffe837;
-  padding: 5px;
-  width: 95px;
-  margin-top: 20px;
-  text-align: center;
+  // color: #ffe837;
+  color: orange;
+  // border: 1px solid #ffe837;
+  // padding: 0px;
+  width: 113px;
+  // margin-top: 20px;
+  text-align: right;
+  margin-bottom: 15px;
 }
 
-.btn-review {
+.btn-review, .btn-review:hover, .btn-review:active, .btn-review:visited, .btn-review:focus {
   color: grey;
   border: 1px solid grey;
   padding: 3px;
   width: 95px;
   margin-top: 20px;
   text-align: center;
+  font-size: smaller;
+  text-decoration: none;
 }
 
