@@ -26,8 +26,14 @@
   border: 0;
 }
 
-
 .status-accepted {
+  color: $homey;
+  padding: 5px;
+  width: 95px;
+  text-align: center;
+}
+
+.btn-accept {
   color: $homey;
   border: 1px solid $homey;
   padding: 5px;
@@ -37,12 +43,21 @@
 
 .status-declined {
   color: red;
+  padding: 5px;
+  width: 95px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-decline {
+  color: red;
   border: 1px solid red;
   padding: 5px;
   width: 95px;
   margin-top: 20px;
   text-align: center;
 }
+
 
 .status-pending {
   color: #ffe837;
