@@ -16,6 +16,7 @@ class DesksController < ApplicationController
   end
 
   def show
+    @features = Feature.all
     @photos = Photo.where(desk: @desk)
     @booking = Booking.new
     if @desk.active == false

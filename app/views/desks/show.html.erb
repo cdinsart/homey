@@ -51,24 +51,30 @@
     </div>
   </div>
   <div class="desk-feature">
-    <p>
        <h3>Features</h3>
       <% @desk_features.each do |f| %>
         <%= image_tag "#{f.feature.icon_name}.png", class: "feature-icon" %>
       <% end %>
-    </p>
+        <% @features.each do |d| %>
+          <% if d.desk_features.where(desk_id: @desk).empty? %>
+            <%= image_tag "#{d.icon_name}.png", class: "feature-icon grey-color" %>
+          <% end %>
+        <% end %>
   </div>
   <div class="desk-host">
     <h3>Your host</h3>
+    <div class="d-flex">
     <div class="host ml-2">
       <% if @desk.user.photo.present? %>
-        <%= cl_image_tag @desk.user.photo, class: "avatar-large mr-3" %>
+        <%= cl_image_tag @desk.user.photo, class: "avatar-large" %>
       <% else %>
-        <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large mr-3"%>
+        <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large"%>
       <% end %>
-      <p><%= @desk.user.first_name.capitalize %></p>
+      <p id="host-name"><%= @desk.user.first_name.capitalize%></p>
     </div>
+    <p>helllooooooo</p>
     <p><%= @desk.user.description %></p>
+  </div>
   </div>
   <div class="desk-location">
     <h3>Location</h3>

@@ -1,4 +1,9 @@
 class DeskFeaturesController < ApplicationController
+
+  def index
+    @desks_features_all = DeskFeature.all
+  end
+
   def new
     @desk = Desk.find(params[:desk_id])
     @desk_feature = DeskFeature.new
