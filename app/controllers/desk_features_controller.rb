@@ -16,6 +16,12 @@ class DeskFeaturesController < ApplicationController
     # end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     @desk_feature = DeskFeature.find(params[:id])
     @desk = @desk_feature.desk

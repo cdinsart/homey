@@ -1,26 +1,65 @@
 <div class="main-container">
 <h1>My desks</h1>
-<% @desks.each do |desk| %>
-  <% photos = Photo.where(desk: desk) %>
-  <% if photos.present? %>
-    <%= cl_image_tag photos.first.data, id: "desk_photo" %>
-  <% else %>
-    <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", id: "desk_photo" %>
+  <% @desks.each do |desk| %>
+  <%= link_to desk_path(desk), class: "link-to-card" do %>
+      <div class="my-desk-card">
+        <div class="carousel-wrap">
+          <div id="carouselExampleControls-<%= desk.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+              <% if desk.photos.present? %>
+                <div class="carousel-item active">
+                  <%= cl_image_tag desk.photos.first.data, class: "d-block w-100", id: "index_desk_photo" %>
+                </div>
+                <% desk.photos.each do |photo| %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.data, class: "d-block w-100", id: "index_desk_photo" %>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="carousel-item active">
+                  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", class: "d-block w-100", id: "index_desk_photo" %>
+                </div>
+                <div class="carousel-item">
+                    <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559061922/fbi4cvtf8rwpsi2ic4lb.jpg", class: "d-block w-100", id: "index_desk_photo" %>
+                  </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls-<%= desk.id %>" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls-<%= desk.id %>" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+            <div class="price-tag-wrap">
+              <div class="price-tag">
+                <div class="price-tag-content">
+                  <h3><%= desk.price %>€</h3>
+                  <p>/Day</p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        <%= link_to desk_path(desk), class: "link-to-card" do %>
+          <div class="d-flex justify-content-between align-items-center w-75">
+            <div class="content">
+              <h2><span><%= desk.title %></span></h2>
+              <p><%= desk.address %></p>
+              <div class="rating">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+            </div>
+        <% end %>
+        <div class="edit-delete">
+          <%= link_to image_tag('pencil.png', class: "pencil-edit"), edit_desk_path(desk), id: "btn-login-edit" %>
+          <%= link_to image_tag('delete.png', class: "bin-delete"), desk_path(desk), method: :delete, data: { confirm: 'Are you sure?'} %>
+        </div>
+          </div>
+      </div>
   <% end %>
-  <p><strong><%= desk.title %></strong></p>
-  <p>Description: <%= desk.description %></p>
-  <p>Address: <%= desk.address %></p>
-  <p>Price: <%= desk.price %> €/day</p>
-  <p>
-    Features:
-    <% desk.features.each do |feature| %>
-      <%= feature.name %>,
-    <% end %>
-  </p>
-  <div class="edit-delete">
-    <%= link_to 'Edit', edit_desk_path(desk), class: "btn-main"  %>
-    <%= link_to 'Delete', desk_path(desk), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login "  %>
-  </div>
-<% end %>
-
 </div>
+
+

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :index]
     resources :bookings, only: [:new, :create]
   end
-  resources :desk_features, only: [:destroy]
+  resources :desk_features, only: [:destroy, :edit, :update]
   resources :photos, only: [:destroy]
   resources :bookings, only: [:show, :index]
   root to: 'pages#home'
