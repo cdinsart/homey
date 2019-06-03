@@ -1,10 +1,12 @@
+<div class="main-container">
 <%= simple_form_for @desk do |f| %>
-<h3>Edit <%= @desk.title %></h3>
+<h2>Edit <%= @desk.title %></h2>
 <p><%= f.input :title%></p>
 <p><%= f.input :address%></p>
 <p><%= f.input :price%></p>
 <p><%= f.input :description%></p>
-<p><%= f.button :submit, class: "btn-main" %></p>
+<p><%= f.button :submit, class: "btn-main mb-4" %></p>
 <!-- Can I also add some new pictures in the same form ? -->
 <% end %>
 <%= link_to 'Back', my_desks_path(@desk), class: "btn-login" %>
+</div>
