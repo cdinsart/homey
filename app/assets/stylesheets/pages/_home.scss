@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: asset-url('computer.jpg');
+  background-image: linear-gradient(to top, rgba(40, 204, 158, 0.40), rgba(0, 0, 0, 0.60)), asset-url('landing2.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,14 +14,15 @@
 }
 
 .banner-content h1 {
-  color: black;
+  color: white;
   font-size: 27px;
 }
 
 .banner-content h2 {
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: lighter;
+  // text-shadow: 1px 1px grey;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
