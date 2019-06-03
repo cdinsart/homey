@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="form-inputs">
+        <h1>Write a review about <%= @booking.desk.user.first_name.capitalize %>'s desk </h1>
+
+          <form action="/bookings/reviews" method="post" class="form-content">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <div class="form-box-description">
+              <textarea class="form-input" placeholder="describe your experience" id="content" rows="4" name="review[content]"></textarea>
+            </div>
+
+              <div class="form-box-price">
+                <input type="number" class="form-input" id="rating" placeholder="Your rating" name="review[desk_rating]">
+              </div>
+            <button type="submit" class="btn-main">SUBMIT</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+

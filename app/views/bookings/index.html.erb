@@ -52,7 +52,7 @@
               <% if booking.status == 'accepted' %>
                 <div class="right">
                   <p class="status-accepted"><%= booking.status %></p>
-                  <a href="#" class="btn-review">leave a review</a>
+                  <%= link_to "leave a review", new_booking_review_path(booking), class: "btn-review" %>
                 </div>
               <% end %>
             </div>
