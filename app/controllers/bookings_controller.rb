@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def denied
-    @booking.status = 'denied'
+    @booking.status = 'declined'
     @booking.save
     redirect_to bookings_path
   end
