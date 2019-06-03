@@ -16,14 +16,31 @@ class DesksController < ApplicationController
   end
 
   def show
-    @features = Feature.all
+    # photo per desk
     @photos = Photo.where(desk: @desk)
     @booking = Booking.new
+    #show only the active desks
     if @desk.active == false
       redirect_to root_path
       flash[:alert] = "Sorry this desk doesn't exist anymore"
     end
+    # available features
+    @available_desk_features = []
     @desk_features = @desk.desk_features
+    @desk_features.each do |d|
+      @available_desk_features << d.feature
+    end
+    # unavailable features
+    @features = Feature.all
+    @unavailable_desk_features = []
+    @features.each do |f|
+      if f.desk_features.where(desk_id: @desk).empty?
+      @unavailable_desk_features << f
+      end
+    end
+    # addition of the 2 arrays
+    @allfeatures = @available_desk_features.concat(@unavailable_desk_features)
+    # map
     @markers = [{
       lat: @desk.latitude,
       lng: @desk.longitude,
