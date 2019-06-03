@@ -14,12 +14,20 @@
   <% if booking.desk.user == current_user %>
     Date: <%= booking.date %>,
   <%= booking.total_price %> €,
-  Status: <%= booking.status %>
+  <% if booking.status == 'accepted' %>
+  Status: <%= booking.status class: "status-accepted"%>
+  <% end %>
+   <% if booking.status == 'declined' %>
+  Status: <%= booking.status class: "status-declined"%>
+  <% end %>
   <% if booking.status == 'pending' %>
-    <%= link_to 'Accept', approved_path(booking), method: :patch, class: "btn btn-primary" %>
-    <%= link_to 'Decline', denied_path(booking), method: :patch, class: "btn btn-primary" %>
+  Status: <%= booking.status class: "status-pending"%>
+    <%= link_to 'Accept', approved_path(booking), method: :patch, class: "btn-accept" %>
+    <%= link_to 'Decline', denied_path(booking), method: :patch, class: "btn-decline" %>
   <% end %>
   <br><br>
   <% end %>
 <% end %>
 </div>
+
+
