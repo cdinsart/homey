@@ -1,58 +1,102 @@
 <div class="banner">
   <div class="banner-content">
-    <h1 class="homepage-typed"></h1>
+    <h1 class="mb-4">Be Productive Anywhere</h1>
     <h2>Find and book a private workspace near you, from people like you</h2>
   </div>
 
-    <form class="search-box" method="get" action="/desks">
-      <input type="text" class="search-bar" id="address" name="location" placeholder="Enter your location...">
-      <div class="search-criteria">
-        <input type="date" class="datepicker" name="date" placeholder="date" value="04/03/3094">
-        <div class="timeslots">
-          <input type="checkbox" class="hidden" id="am" value="am" checked>
-          <label for="am" class="timeslot active">AM</label>
-        </div>
-        <div class="timeslots">
-          <input type="checkbox" class="hidden" id="pm" value="pm" checked>
-          <label for="pm" class="timeslot active">PM</label>
-        </div>
-        <button type="submit" class="btn-main-sm">
-          SEARCH
-        </button>
+  <form class="search-box" method="get" action="/desks">
+    <input type="text" class="search-bar" id="address" name="location" placeholder="Enter your location...">
+    <div class="search-criteria">
+      <input type="date" class="datepicker" name="date" placeholder="date" value="04/03/3094">
+      <div class="timeslots">
+        <input type="checkbox" class="hidden" id="am" value="am" checked>
+        <label for="am" class="timeslot active">AM</label>
       </div>
-    </form>
+      <div class="timeslots">
+        <input type="checkbox" class="hidden" id="pm" value="pm" checked>
+        <label for="pm" class="timeslot active">PM</label>
+      </div>
+      <button type="submit" class="btn-main-sm">
+        SEARCH
+      </button>
+    </div>
+  </form>
 </div>
-<h2 class="text-center h2home">Most popular desks in Barcelona</h2>
-<div class="card-home-grid">
-  <% @desks.each do |desk| %>
+
+<div class="main-container">
+  <h2 class="ml-5 h2home underline">Most popular desks in <span class="homepage-typed">Barcelona</span></h2>
+  <div class="card-home-grid">
+    <% @desks.each do |desk| %>
 
     <div class="card-home">
       <% if desk.photos.present? %>
-        <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
-          <% if desk.user.photo.present? %>
-            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-          <% else %>
-            <img src="buser.png" alt="" class="avatar avatar-position">
-          <% end %>
-        </div>
+      <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
+        <% if desk.user.photo.present? %>
+        <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+        <% else %>
+        <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+        <% end %>
+      </div>
       <% else %>
-        <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
-          <% if desk.user.photo.present? %>
-            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-          <% else %>
-            <img src="buser.png" alt="" class="avatar avatar-position">
-          <% end %>
-        </div>
+      <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
+        <% if desk.user.photo.present? %>
+        <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+        <% else %>
+        <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+        <% end %>
+      </div>
       <% end %>
-        <div class="card-home-body">
-            <h3><%= desk.title %></h3>
-            <div class="card-home-footer">
-                <div class="rating" style="font-size: 60%;">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-              </div>
-                <p><%= desk.price %> €/day</p>
-            </div>
+      <div class="card-home-body">
+        <h3><%= desk.title %></h3>
+        <div class="card-home-footer">
+          <div class="rating" style="font-size: 60%;">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          </div>
+          <p><%= desk.price %> €/day</p>
         </div>
+      </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+  <h2 class="text-center mt-4 mb-4">How it works</h2>
+  <div class="cards">
+    <div class="card">
+      <%= image_tag "pointer.png", class: "home-icon" %>
+      <p>Search for a location & date</p>
+    </div>
+    <div class="card">
+      <%= image_tag "desktop.png", class: "home-icon" %>
+      <p>Browse through a selection of desks</p>
+    </div>
+    <div class="card">
+      <%= image_tag "click.png", class: "home-icon" %>
+      <p>Book in a few clicks!</p>
+    </div>
+  </div>
+  <h2 class="text-center mt-4 mb-4">What our users say</h2>
+  <div class="testimonials">
+    <div class="testimonial text-left">
+      <p class="font-italic">“It’s an incredible way to find a quiet workspace to work from, I use Homey all the time when I travel around the world”</p>
+      <div class="d-flex">
+        <%= image_tag "james.jpg", class: "avatar" %>
+        <div class="content text-left">
+          <p class="font-italic"><small>James</small></p>
+          <p class="font-italic"><small>Copenhagen</small></p>
+          <p class="font-italic"><small>Graphic Designer</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial text-left">
+      <p class="font-italic">“I was having a hard time focusing in co-working spaces and couldn't get any work done. Homey changed everything!”</p>
+      <div class="d-flex">
+        <%= image_tag "jenny.jpg", class: "avatar" %>
+        <div class="content text-left">
+          <p class="font-italic"><small>Jenny</small></p>
+          <p class="font-italic"><small>Brussels</small></p>
+          <p class="font-italic"><small>Tech Developer</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
