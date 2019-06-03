@@ -1,18 +1,22 @@
 .desk-content {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .desk-host {
-  margin-top: 16px;
+  margin-top: 24px;
+}
+
+.host {
+  margin-right: 24px;
 }
 
 .desk-feature {
-  margin-top: 16px;
+  margin-top: 24px;
 
 }
 
 .desk-location {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 
@@ -29,4 +33,14 @@
 .logo {
   width: 40px;
   height: 40px;
+}
+
+#host-name {
+  color: $homey;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grey-color {
+  background-color: red;
 }

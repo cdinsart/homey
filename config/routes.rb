@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   patch '/bookings/:id/approved', to: 'bookings#approved', as: 'approved'
   patch '/bookings/:id/denied', to: 'bookings#denied', as: 'denied'
   resources :desks do
-    resources :desk_features, only: [:new, :create]
+    resources :desk_features, only: [:index, :new, :create]
     resources :photos, only: [:create, :index]
     resources :bookings, only: [:new, :create]
   end
