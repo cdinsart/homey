@@ -31,4 +31,5 @@ Feature.create!(name: 'Television', icon_name: "Television")
 Feature.create!(name: 'Adaptors', icon_name: "Adaptor")
 Feature.create!(name: 'Table light', icon_name: "Lamp")
 Feature.create!(name: 'Pen & Paper', icon_name: "Pen")
+# Feature.create!(name: 'People', icon_name: "Poeple")
 puts "finished the seed"
