@@ -52,7 +52,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="content">
               <h2><span><%= desk.title %></span></h2>
-              <p><%= desk.address %></p>
+              <p><%= desk.address.split(',').pop(3).first %></p>
               <div class="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
               </div>
