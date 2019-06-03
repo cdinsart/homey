@@ -1,12 +1,17 @@
-<% if current_user.photo.present? %>
-  <%= cl_image_tag current_user.photo, id: "profile_photo" %>
-<% else %>
-  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", id: "profile_photo" %>
-<% end %>
-<p>First name: <strong><%= @user.first_name.capitalize %></strong></p>
-<p>Last name: <strong><%= @user.last_name.capitalize %></strong></p>
-<p>Email: <%= @user.email %></p>
-<p>Description: <%= @user.description %></p>
-<%= link_to "Edit", edit_user_registration_path %>
-
+<div class="main-container">
+  <div class="d-flex mt-5 mb-4">
+    <% if current_user.photo.present? %>
+    <%= cl_image_tag current_user.photo, id: "profile_photo" %>
+    <% else %>
+    <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", id: "profile_photo" %>
+    <% end %>
+    <div class="user-info ml-4">
+      <p>First name: <strong><%= @user.first_name.capitalize %></strong></p>
+      <p>Last name: <strong><%= @user.last_name.capitalize %></strong></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Description: <%= @user.description %></p>
+    </div>
+  </div>
+  <%= link_to "Edit", edit_user_registration_path, class: "btn-login" %>
+</div>
 
