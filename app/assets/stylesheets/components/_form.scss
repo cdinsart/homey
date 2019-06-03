@@ -58,3 +58,29 @@ input {
 textarea {
   padding: 12px;
 }
+
+.form-control {
+  width: 95%;
+  height: 100%;
+}
+
+.form-group {
+  height: 56px;
+  width: 87px;
+  margin-top: 0px;
+  box-shadow: 0px 0px 0px 0px;
+  margin-right: 3px;
+}
+
+.form-check {
+  padding-left: 0;
+  width: 56px;
+}
+
+.search-bar-show {
+  background-color: white;
+  padding: 20px;
+  position: fixed;
+  bottom: 18px;
+  width: 100%;
+}
