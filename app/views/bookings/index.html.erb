@@ -1,14 +1,49 @@
 <div class="main-container">
 <h1>My Bookings</h1>
 <h2 class="underline"><span>As a guest</span></h2>
+<h3><span>Upcoming</span></h2>
 <% @guest_bookings.each do |booking| %>
-  Desk: <%= booking.desk.title %>,
-  Date: <%= booking.date %>,
-  <%= booking.total_price %> €,
-  Status: <%= booking.status %>
-  <br>
+  <% if booking.date.future? %>
+    <div class="card-booking">
+      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
+      <div class="booking-summary">
+        <p><strong><%= booking.desk.title %></strong></p>
+        <p>Price: <%= booking.total_price %>€</p>
+        <p><%= booking.desk.address.split(',').pop(3).first %></p>
+        <p><%= booking.date %></p>
+      </div>
+      <% if booking.status == 'accepted' %>
+        <p class="status-accepted"><%= booking.status %></p>
+      <% elsif booking.status == 'denied' %>
+        <p class="status-declined"><%= booking.status %></p>
+      <% else %>
+        <p class="status-pending"><%= booking.status %></p>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
-<br><br>
+
+<h3><span>Past bookings</span></h2>
+<% @guest_bookings.each do |booking| %>
+  <% if booking.date.past? %>
+    <div class="card-booking">
+      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
+      <div class="book-summary">
+        <p><strong><%= booking.desk.title %></strong></p>
+        <p>Price: <%= booking.total_price %>€</p>
+        <p><%= booking.desk.address.split(',').pop(3).first %></p>
+        <p><%= booking.date %></p>
+      </div>
+      <% if booking.status == 'accepted' %>
+        <div class="status">
+          <p class="status-accepted"><%= booking.status %></p>
+          <a href="#" class="btn-review">leave a review</a>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
 <h2 class="underline"><span>As a host</span></h2>
 <% @bookings.each do |booking| %>
   <% if booking.desk.user == current_user %>
