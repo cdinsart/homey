@@ -27,37 +27,39 @@
   <h2 class="ml-5 h2home underline">Most popular desks in <span class="homepage-typed">Barcelona</span></h2>
   <div class="card-home-grid">
     <% @desks.each do |desk| %>
-
-    <div class="card-home">
-      <% if desk.photos.present? %>
-      <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
-        <% if desk.user.photo.present? %>
-        <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-        <% else %>
-        <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
-        <% end %>
-      </div>
-      <% else %>
-      <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
-        <% if desk.user.photo.present? %>
-        <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-        <% else %>
-        <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
-        <% end %>
-      </div>
-      <% end %>
-      <div class="card-home-body">
-        <h3><%= desk.title %></h3>
-        <div class="card-home-footer">
-          <div class="rating" style="font-size: 60%;">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      <%= link_to desk_path(desk) do %>
+        <div class="card-home">
+          <% if desk.photos.present? %>
+          <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
+            <% if desk.user.photo.present? %>
+            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+            <% else %>
+            <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+            <% end %>
           </div>
-          <p><%= humanized_money_with_symbol(desk.price) %> /day</p>
+          <% else %>
+          <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
+            <% if desk.user.photo.present? %>
+            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+            <% else %>
+            <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+            <% end %>
+          </div>
+          <% end %>
+          <div class="card-home-body">
+            <h3><%= desk.title %></h3>
+            <div class="card-home-footer">
+              <div class="rating" style="font-size: 60%;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+              <p><%= humanized_money_with_symbol(desk.price) %> /day</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
+
   <h2 class="text-center mt-4 mb-4">How it works</h2>
   <div class="cards">
     <div class="card">
