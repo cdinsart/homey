@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :desks
   has_many :bookings
+  has_many :reviews
   # def desks
   #   @desks = Desk.where(user_id: self.id)
   # end

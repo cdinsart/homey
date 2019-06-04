@@ -3,8 +3,9 @@ class Desk < ApplicationRecord
   belongs_to :user
   has_many :desk_features, dependent: :destroy
   has_many :features, through: :desk_features
-  has_many :desks
+  has_many :bookings
   has_many :photos
+  has_many :reviews, through: :bookings
 
   # basic validation
   validates :title, presence: true

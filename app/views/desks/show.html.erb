@@ -78,7 +78,26 @@
       </div>
     <p><%= @desk.user.description %></p>
   </div>
-</div>
+  </div>
+  <% if @desk.reviews.any? %>
+    <div class="reviews">
+      <% @desk.reviews.each do |review| %>
+        <div class="card-review">
+          <%= review.desk_rating %>
+          <%= review.content %>
+          <div class="user-review">
+            <% if review.user.photo.present? %>
+              <%= cl_image_tag review.user.photo, class: "avatar-large mr-3" %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large mr-3"%>
+            <% end %>
+            <%= review.user.first_name %> <%= review.user.last_name %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="desk-location">
     <h3>Location</h3>
       <div class="column"
@@ -106,5 +125,5 @@
       <% end %>
       </div>
   <% end %>
-
+</div>
 
