@@ -30,5 +30,28 @@
 }
 
 .host {
-  padding-top: 5px;
+  // padding-top: 5px;
+}
+
+.tab {
+  text-decoration: none;
+  color: black;
+  margin-right: 2rem;
+  margin-bottom: 8px;
+}
+
+.tab:click {
+  text-decoration: none;
+  color: black;
+}
+
+a.underline-tab.active{
+  h2.tab {
+  border-bottom: 4px solid $homey;
+  margin-bottom: 20px;
+  }
+}
+
+a, .a:hover, .a:focus, .a:visited, .a:focus-within, .a:active {
+  text-decoration: none !important;
 }
