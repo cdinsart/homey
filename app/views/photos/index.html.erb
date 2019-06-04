@@ -13,10 +13,10 @@
     <%= simple_form_for [@desk, @photo] do |f| %>
       <%= f.input_field :data, label: false %>
       <%= f.input :data_cache, as: :hidden %>
-      <%= f.button :submit, 'Add photo', class: "btn-login" %>
+      <%= f.button :submit, 'Add photo', class: "btn-login-lg" %>
       <br>
       <br>
-      <%= link_to 'NEXT >', desk_path(@desk), class: "btn-main" %>
+      <%= link_to 'NEXT >', desk_path(@desk), class: "btn-main", id: "next-btn" %>
     <% end %>
 
     <% @photos.each do |photo| %>
