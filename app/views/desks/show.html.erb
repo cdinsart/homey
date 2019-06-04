@@ -38,16 +38,19 @@
 <div class="main-container">
 
   <div class="desk-content">
-    <h1 class ="underline">
+    <h1 class ="underline", style="
+    margin-bottom: 20px">
       <span>
         <%= @desk.title %>
       </span>
     </h1>
     <p><%= @desk.address %></p>
-    <p id="desk-description"><%= @desk.description %></p>
-    <div class="rating">
+    <div class="rating , style="
+    margin-bottom: 20px">
       <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
+    <%#= image_tag ("chat.png") %>
+    <p id="desk-description"><%= @desk.description %></p>
   </div>
 
   <div class="desk-feature">
@@ -83,31 +86,29 @@
   </div>
 
   <h3>Reviews</h3>
-  <div class="row">
     <div class="desk-reviews">
       <% if @desk.reviews.any? %>
         <% @desk.reviews.each do |review| %>
-          <div class="col-6">
               <!-- turn this into stars -->
             <div class="desk-review text-left">
-              <span><%= review.desk_rating %></span>
+              <div class="desk-review-rating">
+                <span><%= review.desk_rating %></span>
+              </div>
               <p class="desk-review-content font-italic">"<%= review.content %>"</p>
-              <div class="d-flex">
+              <div class="d-flex desk-review-user">
                 <% if review.user.photo.present? %>
-                  <%= cl_image_tag review.user.photo, class: "avatar mr-3" %>
+                  <%= cl_image_tag review.user.photo, class: "avatar-relative mr-3" %>
                 <% else %>
-                  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar mr-3"%>
+                  <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-relative mr-3"%>
                 <% end %>
                 <div class="desk-review-name text-left">
                   <p class=""><small><%= review.user.first_name %></small></p>
                 </div>
               </div>
             </div>
-          </div>
         <% end %>
       <% end %>
     </div>
-  </div>
 
   <div class="desk-location">
     <h3>Location</h3>

@@ -4,6 +4,7 @@
 
 .desk-host {
   margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .host {
@@ -58,15 +59,29 @@
 
 .desk-review {
   height: 100%;
-  width: 170px;
+  width: 250px !important;
   text-align: center;
   border: 0;
   padding: 10px;
   box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
 }
 
+.desk-review-rating{
+ height: 10%;
+ padding: 0rem 1rem 1rem 0.5rem;
+}
+
 .desk-review-content {
-  height: 90px;
+  height: 60%;
+  overflow: auto;
+  padding: 1rem 1rem 1rem 0.5rem;
+}
+
+.desk-review-user {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height: 30%;
+  padding-left: 0.5rem;
 }
 
 .desk-review-name {
@@ -74,4 +89,9 @@
   margin-top: 0;
   color: black;
   padding: 3px;
+}
+
+.avatar-relative {
+  height: 100%;
+  border-radius: 50%;
 }

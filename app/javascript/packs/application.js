@@ -1,5 +1,5 @@
+import "jquery";
 import "bootstrap";
-
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { toggleTimeSlot } from 'components/booking';
@@ -15,6 +15,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initStarRating } from '../plugins/init_star_rating';
 
+// carousel
+import { initCarousel } from '../components/carousel';
 initTyped();
 
 initAutocomplete();
@@ -27,3 +29,5 @@ flatpickr(".datepicker", {
 initMapbox();
 
 initStarRating();
+
+initCarousel();
