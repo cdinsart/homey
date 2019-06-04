@@ -15,8 +15,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initStarRating } from '../plugins/init_star_rating';
 
-// carousel
-import { initCarousel } from '../components/carousel';
 initTyped();
 
 initAutocomplete();
@@ -30,4 +28,3 @@ initMapbox();
 
 initStarRating();
 
-initCarousel();

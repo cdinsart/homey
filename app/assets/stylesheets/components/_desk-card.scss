@@ -51,19 +51,22 @@
 .desk-reviews {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-top: 20px;
-  height: 180px;
-
+  height: 190px;
+  overflow-x: scroll;
+  padding-bottom: 4px;
 }
 
 .desk-review {
   height: 100%;
-  width: 250px !important;
+  width: 184px !important;
   text-align: center;
   border: 0;
   padding: 10px;
-  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+  margin-right: 20px;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .desk-review-rating{
@@ -94,4 +97,12 @@
 .avatar-relative {
   height: 100%;
   border-radius: 50%;
+}
+
+.homey-star {
+  color: $homey;
+}
+
+.grey-star {
+  color: #C8C6C6;
 }
