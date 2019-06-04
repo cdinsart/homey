@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
     @booking.desk = @desk
     @booking.user = @user
-    @booking.am & @booking.pm ? @booking.total_price = @desk.price : @booking.total_price = @desk.price / 2
+    @booking.am & @booking.pm ? @booking.amount = @desk.price : @booking.amount = @desk.price / 2
     @booking.save ? (redirect_to booking_path(@booking)) : (render 'desk/show')
   end
 
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
   end
 
   def strong_params
-    params.require(:booking).permit(:date, :am, :pm, :desk_id, :user_id, :status)
+    params.require(:booking).permit(:date, :am, :pm, :desk_id, :user_id, :status, :state, :payment)
   end
 
   def set_desk_rating

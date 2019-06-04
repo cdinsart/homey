@@ -13,7 +13,7 @@
               <% end %>
               <div class="booking-summary">
                 <p><strong><%= booking.desk.title %></strong></p>
-                <p>Price: <%= booking.total_price %>€</p>
+                <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
                 <p><%= booking.date %></p>
               </div>
@@ -45,7 +45,7 @@
               <% end %>
               <div class="booking-summary">
                 <p><strong><%= booking.desk.title %></strong></p>
-                <p>Price: <%= booking.total_price %>€</p>
+                <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
                 <p><%= booking.date %></p>
               </div>
@@ -76,7 +76,7 @@
               <% end %>
               <div class="booking-summary">
                 <p><strong><%= booking.desk.title %></strong></p>
-                <p>Price: <%= booking.total_price %>€</p>
+                <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
                 <p><%= booking.date %></p>
               </div>
@@ -102,7 +102,7 @@
               <% end %>
               <div class="booking-summary">
                 <p><strong><%= booking.desk.title %></strong></p>
-                <p>Price: <%= booking.total_price %>€</p>
+                <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
                 <p><%= booking.date %></p>
               </div>

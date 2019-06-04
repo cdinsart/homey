@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :desks do
     resources :desk_features, only: [:index, :new, :create]
     resources :photos, only: [:create, :index]
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create] do
+      resources :payments, only: [:new, :create]
+    end
   end
   resources :desk_features, only: [:destroy, :edit, :update]
   resources :photos, only: [:destroy]
