@@ -14,4 +14,12 @@ class Desk < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true # , length: { minimum: 10 }
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def desk_rating
+    sum = 0
+    self.reviews.each do |review|
+      sum += review.desk_rating
+    end
+    return sum / self.reviews.length if self.reviews.any?
+  end
 end

@@ -45,10 +45,18 @@
       </span>
     </h1>
     <p><%= @desk.address %></p>
-    <div class="rating , style="
-    margin-bottom: 20px">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-    </div>
+    <% if @desk_rating.present? %>
+      <% @desk_rating.times do %>
+        <span class="homey-star">☆</span>
+      <% end %>
+      <% (5-@desk_rating).times do %>
+        <span class="grey-star">☆</span>
+      <% end %>
+    <% else %>
+      <div class="rating" , style="margin-bottom: 20px">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      </div>
+    <% end %>
     <%#= image_tag ("chat.png") %>
     <p id="desk-description"><%= @desk.description %></p>
   </div>
