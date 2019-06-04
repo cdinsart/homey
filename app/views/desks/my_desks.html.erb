@@ -48,9 +48,20 @@
             <div class="content">
               <h2 class="mb-2"><span><%= desk.title %></span></h2>
               <p class="mb-2"><%= desk.address %></p>
-              <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-              </div>
+              <% if desk.reviews.any? %>
+                <div class="desk-review-rating" style="padding-left: 0px">
+                  <% desk.desk_rating.times do %>
+                    <span class="homey-star">☆</span>
+                  <% end %>
+                  <% (5-desk.desk_rating).times do %>
+                    <span class="grey-star">☆</span>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="rating">
+                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+              <% end %>
             </div>
         <% end %>
         <div class="edit-delete">
