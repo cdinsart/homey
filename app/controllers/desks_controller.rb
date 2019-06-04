@@ -1,5 +1,6 @@
 class DesksController < ApplicationController
   before_action :set_desk, only: [:show, :edit, :update, :destroy]
+  before_action :set_desk_rating, only: :show
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def my_desks
@@ -86,5 +87,14 @@ class DesksController < ApplicationController
 
   def set_desk
     @desk = Desk.find(params[:id])
+  end
+
+  def set_desk_rating
+    @desk = Desk.find(params[:id])
+    sum = 0
+    @desk.reviews.each do |review|
+      sum += review.desk_rating
+    end
+    @desk_rating = sum / @desk.reviews.length if @desk.reviews.any?
   end
 end

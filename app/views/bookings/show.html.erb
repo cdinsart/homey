@@ -4,13 +4,16 @@
   <p><%= @booking.desk.description %></p>
   <p>Location:<%= @booking.desk.address.split(',').pop(3).first %></p>
   <% if @desk_rating.present? %>
-    <!-- <%#= @desk_rating %> stars -->
     <% @desk_rating.times do %>
       <span class="homey-star">☆</span>
     <% end %>
     <% (5-@desk_rating).times do %>
       <span class="grey-star">☆</span>
     <% end %>
+  <% else %>
+    <div class="rating" , style="margin-bottom: 20px">
+      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    </div>
   <% end %>
   <p>Date: <%= @booking.date.to_formatted_s(:long) %></p>
   <h3 class="underline mt-4"><span>Price:</span> <%= humanized_money_with_symbol(@booking.amount) %></h3>

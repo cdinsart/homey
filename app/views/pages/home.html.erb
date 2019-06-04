@@ -49,11 +49,21 @@
           <div class="card-home-body">
             <h3><%= desk.title %></h3>
             <div class="card-home-footer">
-              <div class="rating" style="font-size: 60%;">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-              </div>
+              <% if desk.reviews.any? %>
+                <div class="desk-review-rating">
+                  <% desk.desk_rating.times do %>
+                    <span class="homey-star">☆</span>
+                  <% end %>
+                  <% (5-desk.desk_rating).times do %>
+                    <span class="grey-star">☆</span>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="rating" style="font-size: 60%;">
+                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+              <% end %>
               <p><%= humanized_money_with_symbol(desk.price) %> /day</p>
-            </div>
           </div>
         </div>
       <% end %>
