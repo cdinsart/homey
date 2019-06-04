@@ -85,7 +85,8 @@
   </div>
   </div>
 
-  <h3>Reviews</h3>
+  <% if @desk.reviews.present?%>
+    <h3>Reviews</h3>
     <div class="desk-reviews">
       <% if @desk.reviews.any? %>
         <% @desk.reviews.each do |review| %>
@@ -114,6 +115,7 @@
         <% end %>
       <% end %>
     </div>
+  <% end %>
 
   <div class="desk-location">
     <h3>Location</h3>
