@@ -15,7 +15,7 @@
                 <p><strong><%= booking.desk.title %></strong></p>
                 <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                <p><%= booking.date %></p>
+                <p><%= booking.date.to_formatted_s(:long) %></p>
               </div>
               <% if booking.status == 'accepted' %>
                 <div class="right">
@@ -48,7 +48,7 @@
                 <p>Booked by: <%=booking.user.first_name.capitalize %></p>
                 <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                <p><%= booking.date %></p>
+                <p><%= booking.date.to_formatted_s(:long) %></p>
               </div>
               <% if booking.status == 'accepted' %>
                 <div class="right">
@@ -79,7 +79,7 @@
                 <p>Booked by: <%=booking.user.first_name.capitalize %></p>
                 <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                <p><%= booking.date %></p>
+                <p><%= booking.date.to_formatted_s(:long) %></p>
               </div>
               <div class="right">
                 <p class="status-pending"><%= booking.status %></p>
@@ -105,7 +105,7 @@
                 <p><strong><%= booking.desk.title %></strong></p>
                 <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
                 <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                <p><%= booking.date %></p>
+                <p><%= booking.date.to_formatted_s(:long) %></p>
               </div>
               <div class="right">
                 <% if booking.status == 'accepted' %>
