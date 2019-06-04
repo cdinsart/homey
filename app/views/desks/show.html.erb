@@ -1,4 +1,3 @@
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% if @photos.present? %>
@@ -74,7 +73,7 @@
         <% else %>
           <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large"%>
         <% end %>
-        <p id="host-name"><%= @desk.user.first_name.capitalize%></p>
+        <p id="host-name"><%= @desk.user.first_name.capitalize %></p>
       </div>
     <p><%= @desk.user.description %></p>
   </div>
