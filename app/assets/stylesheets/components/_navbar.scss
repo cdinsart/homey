@@ -1,7 +1,6 @@
 .navbar {
   justify-content: space-between;
   background: white;
-  height: 75px;
 }
 
 .navbar-logo img {
@@ -11,10 +10,12 @@
 .btn-list-desk {
   background-color: $homey;
   color: white;
-  padding: 15px;
+  padding-top: 7px;
   text-decoration: none !important;
   text-align: center;
-  margin-top: none;
+  margin-top: 10px;
+  height: 40px;
+  width: 95px;
 }
 
 .btn-list-desk:hover {
@@ -24,9 +25,13 @@
 .btn-login {
   border: 1px solid $homey;
   color: black;
-  padding: 15px;
-  margin-right: 20px;
+
+  padding-top: 7px;
+  margin-top: 10px;
+  margin-right: 15px;
   text-decoration: none !important;
   text-align: center;
+  height: 40px;
+  width: 68px;
 }
 
