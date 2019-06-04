@@ -54,7 +54,7 @@
               <h2><span><%= desk.title %></span></h2>
               <p><%= desk.address.split(',').pop(3).first %></p>
               <% if desk.reviews.any? %>
-                <div class="desk-review-rating">
+                <div class="desk-review-rating" style="padding-left: 0px">
                   <% desk.desk_rating.times do %>
                     <span class="homey-star">☆</span>
                   <% end %>
