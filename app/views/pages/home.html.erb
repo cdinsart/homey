@@ -30,27 +30,27 @@
       <%= link_to desk_path(desk) do %>
         <div class="card-home">
           <% if desk.photos.present? %>
-          <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
-            <% if desk.user.photo.present? %>
-            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-            <% else %>
-            <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
-            <% end %>
-          </div>
+            <div class="card-home-img" style="background-image: url('<%= cl_image_path desk.photos.first.data %>');">
+              <% if desk.user.photo.present? %>
+                <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+              <% else %>
+                <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+              <% end %>
+            </div>
           <% else %>
-          <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
-            <% if desk.user.photo.present? %>
-            <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
-            <% else %>
-            <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
-            <% end %>
-          </div>
+            <div class="card-home-img" style="background-image: url(<%= image_path 'computer.jpg' %>);">
+              <% if desk.user.photo.present? %>
+                <%= cl_image_tag desk.user.photo, class: "avatar avatar-position" %>
+              <% else %>
+                <img src="https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png" alt="" class="avatar avatar-position">
+              <% end %>
+            </div>
           <% end %>
           <div class="card-home-body">
             <h3><%= desk.title %></h3>
             <div class="card-home-footer">
               <% if desk.reviews.any? %>
-                <div class="desk-review-rating">
+                <div class="desk-review-rating" style="font-size: 60%;">
                   <% desk.desk_rating.times do %>
                     <span class="homey-star">☆</span>
                   <% end %>
@@ -64,6 +64,7 @@
                 </div>
               <% end %>
               <p><%= humanized_money_with_symbol(desk.price) %> /day</p>
+            </div>
           </div>
         </div>
       <% end %>
