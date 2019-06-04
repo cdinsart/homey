@@ -5,7 +5,9 @@
 
     <div class="navbar-buttons d-flex">
       <% if user_signed_in? %>
-        <%= link_to "Add a desk", new_desk_path, class: "btn-list-desk" %>
+        <% unless [controller_name, action_name].in? [['desks', 'new'], ['desk_features', 'new'], ['photos', 'index']]%>
+          <%= link_to "Add a desk", new_desk_path, class: "btn-list-desk" %>
+        <% end %>
       <div class="avatar-logo">
         <% if current_user.photo.present? %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
