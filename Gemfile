@@ -21,6 +21,10 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 # Search by location
 gem 'geocoder'
+# Adding monetize gem
+gem 'money-rails'
+# Show me the money!
+gem 'stripe'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,4 +1,5 @@
 class Desk < ApplicationRecord
+  monetize :price_cents
   geocoded_by :address
   belongs_to :user
   has_many :desk_features, dependent: :destroy
