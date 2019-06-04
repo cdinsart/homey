@@ -91,7 +91,7 @@
             <% else %>
               <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559038920/blank-profile-picture-973460_1280_tey6qw.png", class: "avatar-large mr-3"%>
             <% end %>
-            <%= review.user.full_name %>
+            <%= review.user.first_name %> <%= review.user.last_name %>
           </div>
         </div>
       <% end %>
