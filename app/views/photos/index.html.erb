@@ -18,10 +18,15 @@
       <br>
       <%= link_to 'NEXT >', desk_path(@desk), class: "btn-main", id: "next-btn" %>
     <% end %>
-
-    <% @photos.each do |photo| %>
-      <%= cl_image_tag photo.data, id: "desk_photo" %>
-      <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-login" %>
+    <div class="row">
+      <% @photos.each do |photo| %>
+      <div class="col-6">
+        <%= cl_image_tag photo.data, id: "upload_photo" %>
+        <div class="text-right mt-1">
+        <%= link_to image_tag('delete.png', class: "bin-delete"), photo, method: :delete, data: { confirm: 'Are you sure?'} %>
+        </div>
+        </div>
     <% end %>
+    </div>
   </div>
 </div>

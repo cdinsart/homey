@@ -1,5 +1,5 @@
 <div class="main-container">
-<h1>My desks</h1>
+<h1 class="mt-4 mb-3">My desks</h1>
   <% @desks.each do |desk| %>
   <%= link_to desk_path(desk), class: "link-to-card" do %>
       <div class="my-desk-card">
@@ -46,8 +46,8 @@
         <%= link_to desk_path(desk), class: "link-to-card" do %>
           <div class="d-flex justify-content-between align-items-center w-75">
             <div class="content">
-              <h2><span><%= desk.title %></span></h2>
-              <p><%= desk.address %></p>
+              <h2 class="mb-2"><span><%= desk.title %></span></h2>
+              <p class="mb-2"><%= desk.address %></p>
               <div class="rating">
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
               </div>
