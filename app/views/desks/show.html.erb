@@ -132,7 +132,7 @@
         <div class="timeslots">
           <%= f.input :pm, input_html: { class: "hidden" }, label: "PM", label_html: { class: "timeslot"}, required: false %>
         </div>
-        <%= f.button :submit, class: "btn-main-smaller", value: "Book | #{@desk.price} €" %>
+        <%= f.button :submit, class: "btn-main-smaller", value: "Book | #{@desk.price} €", data: { disable_with: false } %>
       <% end %>
       </div>
   <% end %>
