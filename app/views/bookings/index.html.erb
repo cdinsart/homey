@@ -1,8 +1,8 @@
 <div class="main-container">
-  <h1>My Bookings</h1>
+  <h1 class="mt-4 mb-3">My Bookings</h1>
       <h2 class="underline"><span>As a guest</span></h2>
       <% if @guest_bookings.any? %>
-        <h3 class="subchapter"><span>Upcoming</span></h2>
+        <h3 class="subchapter"><span>Upcoming</span></h3>
         <% @guest_bookings.sort.reverse.each do |booking| %>
           <% if booking.date.future? %>
             <div class="card-booking">
@@ -34,7 +34,7 @@
           <% end %>
         <% end %>
 
-        <h3  class="subchapter"><span>Past bookings</span></h2>
+        <h3  class="subchapter"><span>Past bookings</span></h3>
         <% @guest_bookings.sort.reverse.each do |booking| %>
           <% if booking.date.past? %>
             <div class="card-booking">
@@ -64,7 +64,7 @@
 
       <h2 class="underline host"><span>As a host</span></h2>
 
-      <h3 class="subchapter"><span>Requested (awaiting response)</span></h2>
+      <h3 class="subchapter"><span>Requested (awaiting response)</span></h3>
       <% @bookings.sort.reverse.each do |booking| %>
         <% if booking.desk.user == current_user %>
           <% if booking.status == 'pending' %>
@@ -90,7 +90,7 @@
         <% end %>
       <% end %>
 
-      <h3 class="subchapter"><span>Past bookings</span></h2>
+      <h3 class="subchapter"><span>Past bookings</span></h3>
       <% @bookings.sort.reverse.each do |booking| %>
         <% if booking.desk.user == current_user %>
           <% if booking.status == 'accepted' || booking.status == 'denied' %>
@@ -117,6 +117,4 @@
           <% end %>
         <% end %>
       <% end %>
-
 </div>
-
