@@ -58,6 +58,6 @@ class BookingsController < ApplicationController
     @desk.reviews.each do |review|
       sum += review.desk_rating
     end
-    @desk_rating = sum / @desk.reviews.length
+    @desk_rating = sum / @desk.reviews.length if @desk.reviews.any?
   end
 end

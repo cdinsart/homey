@@ -4,7 +4,13 @@
   <p><%= @booking.desk.description %></p>
   <p><%= @booking.desk.address.split(',').pop(3).first %></p>
   <% if @desk_rating.present? %>
-    <%= @desk_rating %> stars
+    <!-- <%#= @desk_rating %> stars -->
+    <% @desk_rating.times do %>
+      <span class="homey-star">☆</span>
+    <% end %>
+    <% (5-@desk_rating).times do %>
+      <span class="grey-star">☆</span>
+    <% end %>
   <% end %>
   <p>Date: <%= @booking.date.to_formatted_s(:long) %></p>
   <p>Price: <%= humanized_money_with_symbol(@booking.amount) %></p>
