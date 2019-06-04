@@ -1,2 +1,9 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h2>Booking summary</h2>
+<h3><%= @booking.desk.title %></h3>
+<p><%= @booking.desk.address.split(',').pop(3).first %></p>
+<% if @desk_rating.present? %>
+  <%= @desk_rating %> stars
+<% end %>
+<p>Booking date: <%= @booking.date %></p>
+<p>Price: <%= @booking.total_price %>€</p>
+<h3>Enter your credit cards below:</h3>

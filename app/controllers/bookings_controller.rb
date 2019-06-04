@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :approved, :denied]
-  before_action :set_desk, only: [:create]
+  before_action :set_booking, only: [:approved, :denied]
+  before_action :set_desk, only: :create
+  before_action :set_desk_rating, only: :show
 
   def index
     @guest_bookings = current_user.bookings
@@ -21,7 +22,7 @@ class BookingsController < ApplicationController
     @booking.desk = @desk
     @booking.user = @user
     @booking.am & @booking.pm ? @booking.total_price = @desk.price : @booking.total_price = @desk.price / 2
-    @booking.save ? (redirect_to bookings_path) : (render 'desk/show')
+    @booking.save ? (redirect_to booking_path(@booking)) : (render 'desk/show')
   end
 
   def approved
@@ -48,5 +49,15 @@ class BookingsController < ApplicationController
 
   def strong_params
     params.require(:booking).permit(:date, :am, :pm, :desk_id, :user_id, :status)
+  end
+
+  def set_desk_rating
+    @booking = Booking.find(params[:id])
+    @desk = @booking.desk
+    sum = 0
+    @desk.reviews.each do |review|
+      sum += review.desk_rating
+    end
+    @desk_rating = sum / @desk.reviews.length
   end
 end
