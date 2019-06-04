@@ -1,21 +1,21 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% if @photos.present? %>
-      <div class="carousel-item active">
-        <%= cl_image_tag @photos.first.data, class: "d-block w-100", id: "desk_photo" %>
-      </div>
-      <% @photos.drop(1).each do |photo| %>
-        <div class="carousel-item">
-          <%= cl_image_tag photo.data, class: "d-block w-100", id: "desk_photo" %>
-        </div>
-      <% end %>
+    <div class="carousel-item active">
+      <%= cl_image_tag @photos.first.data, class: "d-block w-100", id: "desk_photo" %>
+    </div>
+    <% @photos.drop(1).each do |photo| %>
+    <div class="carousel-item">
+      <%= cl_image_tag photo.data, class: "d-block w-100", id: "desk_photo" %>
+    </div>
+    <% end %>
     <% else %>
-      <div class="carousel-item active">
-        <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", class: "d-block w-100", id: "desk_photo" %>
-      </div>
-      <div class="carousel-item">
-          <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559061922/fbi4cvtf8rwpsi2ic4lb.jpg", class: "d-block w-100", id: "desk_photo" %>
-        </div>
+    <div class="carousel-item active">
+      <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559054779/photo-1498050108023-c5249f4df085_laghas.jpg", class: "d-block w-100", id: "desk_photo" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "https://res.cloudinary.com/dwourcbb9/image/upload/v1559061922/fbi4cvtf8rwpsi2ic4lb.jpg", class: "d-block w-100", id: "desk_photo" %>
+    </div>
     <% end %>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -28,25 +28,23 @@
   </a>
 </div>
 <div class="price-tag-wrap-show">
-              <div class="price-tag">
-                <div class="price-tag-content">
-                  <h3><%= humanized_money_with_symbol(@desk.price) %></h3>
-                  <p>/Day</p>
-                </div>
-              </div>
-            </div>
-<div class="main-container">
+  <div class="price-tag">
+    <div class="price-tag-content">
+      <h3><%= humanized_money_with_symbol(@desk.price) %></h3>
+      <p>/Day</p>
+    </div>
+  </div>
+</div>
 
+<div class="main-container">
   <div class="desk-content">
-    <h1 class ="underline", style="
-    margin-bottom: 20px">
+    <h1 class ="underline" style=" margin-bottom: 20px">
       <span>
         <%= @desk.title %>
       </span>
     </h1>
     <p><%= @desk.address %></p>
-    <div class="rating , style="
-    margin-bottom: 20px">
+    <div class="rating" style=" margin-bottom: 20px" >
       <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
     <%#= image_tag ("chat.png") %>
@@ -67,8 +65,8 @@
         <% end %>
         </div>
       <% end %>
-      </div>
     </div>
+  </div>
 
   <div class="desk-host">
     <h3>Your host</h3>
@@ -81,8 +79,8 @@
         <% end %>
         <p id="host-name"><%= @desk.user.first_name.capitalize %></p>
       </div>
-    <p><%= @desk.user.description %></p>
-  </div>
+      <p><%= @desk.user.description %></p>
+    </div>
   </div>
 
   <% if @desk.reviews.present?%>
@@ -129,7 +127,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
   </div>
-  </div>
+</div>
   <% if @desk.user != current_user %>
       <%= simple_form_for [@desk, @booking] do |f| %>
       <div class="search-bar-show d-flex justify-content-between">
@@ -144,5 +142,4 @@
       <% end %>
       </div>
   <% end %>
-</div>
 

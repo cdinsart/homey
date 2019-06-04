@@ -1,8 +1,8 @@
 <div class="main-container">
-  <h1 class="mt-4 mb-3">Booking summary</h1>
+  <h1 class="mt-4 mb-3">Booking Summary</h1>
   <h3><%= @booking.desk.title %></h3>
   <p><%= @booking.desk.description %></p>
-  <p><%= @booking.desk.address.split(',').pop(3).first %></p>
+  <p>Location:<%= @booking.desk.address.split(',').pop(3).first %></p>
   <% if @desk_rating.present? %>
     <!-- <%#= @desk_rating %> stars -->
     <% @desk_rating.times do %>
@@ -13,7 +13,10 @@
     <% end %>
   <% end %>
   <p>Date: <%= @booking.date.to_formatted_s(:long) %></p>
-  <p>Price: <%= humanized_money_with_symbol(@booking.amount) %></p>
+  <h3 class="underline mt-4"><span>Price:</span> <%= humanized_money_with_symbol(@booking.amount) %></h3>
+  <h3>Write a message to your host (optional): </h3>
+  <textarea class="border" style="width: 100%"></textarea>
+  <p class="font-italic mt-3">By clicking on "Request Booking", we will send a notification to your host and will await his confirmation. We will notify you once you have been accepted or declined.</p>
 
   <!-- <h3>Enter your credit cards below:</h3> -->
   <%= form_tag desk_booking_payments_path(@desk, @booking) do %>
