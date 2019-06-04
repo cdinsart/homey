@@ -1,133 +1,132 @@
 <div class="main-container">
   <h1 class="mt-4 mb-3">My Bookings</h1>
-  <div>
-    <b-card no-body>
-      <b-tabs card>
-        <b-tab title="As a guest" active>
-        <h2 class="underline"><span>As a guest</span></h2>
-          <b-card-text>
-            <% if @guest_bookings.any? %>
-              <h3 class="subchapter"><span>Upcoming</span></h3>
-              <% @guest_bookings.sort.reverse.each do |booking| %>
-                <% if booking.date.future? %>
-                  <div class="card-booking mb-2">
-                    <% if booking.desk.photos.any? %>
-                      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
-                    <% else %>
-                      <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
-                    <% end %>
-                    <div class="booking-summary">
-                      <p><strong><%= booking.desk.title %></strong></p>
-                      <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
-                      <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                      <p><%= booking.date.to_formatted_s(:long) %></p>
-                    </div>
-                    <% if booking.status == 'accepted' %>
-                      <div class="right">
-                        <p class="status-accepted"><%= booking.status %></p>
-                      </div>
-                    <% elsif booking.status == 'denied' %>
-                      <div class="right">
-                        <p class="status-declined"><%= booking.status %></p>
-                      </div>
-                    <% else %>
-                      <div class="right">
-                        <p class="status-pending"><%= booking.status %></p>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              <% end %>
 
-              <h3  class="subchapter"><span>Past bookings</span></h3>
-              <% @guest_bookings.sort.reverse.each do |booking| %>
-                <% if booking.date.past? %>
-                  <div class="card-booking mb-2">
-                    <% if booking.desk.photos.any? %>
-                      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
-                    <% else %>
-                      <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
-                    <% end %>
-                    <div class="booking-summary">
-                      <p><strong><%= booking.desk.title %></strong></p>
-                      <p>Booked by: <%=booking.user.first_name.capitalize %></p>
-                      <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
-                      <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                      <p><%= booking.date.to_formatted_s(:long) %></p>
-                    </div>
-                    <% if booking.status == 'accepted' %>
-                      <div class="right">
-                        <p class="status-accepted"><%= booking.status %></p>
-                        <%= link_to "leave a review", new_booking_review_path(booking), class: "btn-review" %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              <% end %>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#guest" class="underline-tab active"><h2 class="tab"><span>As a guest</span></h2></a></li>
+  <li><a data-toggle="tab" href="#host" class="underline-tab"><h2 class="tab"><span>As a host</span></h2></a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="guest" class="tab-pane fade in active show">
+
+    <% if @guest_bookings.any? %>
+      <h3 class="subchapter"><span>Upcoming</span></h3>
+      <% @guest_bookings.sort.reverse.each do |booking| %>
+        <% if booking.date.future? %>
+          <div class="card-booking mb-2">
+            <% if booking.desk.photos.any? %>
+              <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
             <% else %>
-              <p>You don't have any bookings yet 😉</p>
+              <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
             <% end %>
-          </b-card-text>
-        </b-tab>
-        <b-tab title="As a host">
-        <h2 class="underline host"><span>As a host</span></h2>
-          <b-card-text>
-            <h3 class="subchapter"><span>Requested (awaiting response)</span></h3>
-            <% @bookings.sort.reverse.each do |booking| %>
-              <% if booking.desk.user == current_user %>
-                <% if booking.status == 'pending' %>
-                  <div class="card-booking mb-2">
-                    <% if booking.desk.photos.any? %>
-                      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
-                    <% else %>
-                      <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
-                    <% end %>
-                    <div class="booking-summary">
-                      <p><strong><%= booking.desk.title %></strong></p>
-                      <p>Booked by: <%=booking.user.first_name.capitalize %></p>
-                      <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
-                      <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                      <p><%= booking.date.to_formatted_s(:long) %></p>
-                    </div>
-                    <div class="right">
-                      <p class="status-pending"><%= booking.status %></p>
-                      <%= link_to 'Accept', approved_path(booking), method: :patch, class: "btn-accept" %>
-                      <%= link_to 'Decline', denied_path(booking), method: :patch, class: "btn-decline" %>
-                    </div>
-                  </div>
-                <% end %>
+            <div class="booking-summary">
+              <p><strong><%= booking.desk.title %></strong></p>
+              <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
+              <p><%= booking.desk.address.split(',').pop(3).first %></p>
+              <p><%= booking.date.to_formatted_s(:long) %></p>
+            </div>
+            <% if booking.status == 'accepted' %>
+              <div class="right">
+                <p class="status-accepted"><%= booking.status %></p>
+              </div>
+            <% elsif booking.status == 'denied' %>
+              <div class="right">
+                <p class="status-declined"><%= booking.status %></p>
+              </div>
+            <% else %>
+              <div class="right">
+                <p class="status-pending"><%= booking.status %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <h3  class="subchapter"><span>Past bookings</span></h3>
+      <% @guest_bookings.sort.reverse.each do |booking| %>
+        <% if booking.date.past? %>
+          <div class="card-booking mb-2">
+            <% if booking.desk.photos.any? %>
+              <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
+            <% else %>
+              <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
+            <% end %>
+            <div class="booking-summary">
+              <p><strong><%= booking.desk.title %></strong></p>
+              <p>Booked by: <%=booking.user.first_name.capitalize %></p>
+              <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
+              <p><%= booking.desk.address.split(',').pop(3).first %></p>
+              <p><%= booking.date.to_formatted_s(:long) %></p>
+            </div>
+            <% if booking.status == 'accepted' %>
+              <div class="right">
+                <p class="status-accepted"><%= booking.status %></p>
+                <%= link_to "leave a review", new_booking_review_path(booking), class: "btn-review" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>You don't have any bookings yet 😉</p>
+    <% end %>
+  </div>
+  <div id="host" class="tab-pane fade">
+    <h3 class="subchapter"><span>Requested (awaiting response)</span></h3>
+    <% @bookings.sort.reverse.each do |booking| %>
+      <% if booking.desk.user == current_user %>
+        <% if booking.status == 'pending' %>
+          <div class="card-booking mb-2">
+            <% if booking.desk.photos.any? %>
+              <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
+            <% else %>
+              <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
+            <% end %>
+            <div class="booking-summary">
+              <p><strong><%= booking.desk.title %></strong></p>
+              <p>Booked by: <%=booking.user.first_name.capitalize %></p>
+              <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
+              <p><%= booking.desk.address.split(',').pop(3).first %></p>
+              <p><%= booking.date.to_formatted_s(:long) %></p>
+            </div>
+            <div class="right">
+              <p class="status-pending"><%= booking.status %></p>
+              <%= link_to 'Accept', approved_path(booking), method: :patch, class: "btn-accept" %>
+              <%= link_to 'Decline', denied_path(booking), method: :patch, class: "btn-decline" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    <h3 class="subchapter"><span>Past bookings</span></h3>
+    <% @bookings.sort.reverse.each do |booking| %>
+      <% if booking.desk.user == current_user %>
+        <% if booking.status == 'accepted' || booking.status == 'denied' %>
+          <div class="card-booking">
+            <% if booking.desk.photos.any? %>
+              <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
+            <% else %>
+              <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
+            <% end %>
+            <div class="booking-summary">
+              <p><strong><%= booking.desk.title %></strong></p>
+              <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
+              <p><%= booking.desk.address.split(',').pop(3).first %></p>
+              <p><%= booking.date.to_formatted_s(:long) %></p>
+            </div>
+            <div class="right">
+              <% if booking.status == 'accepted' %>
+                <p class="status-accepted"><%= booking.status %></p>
+              <% else %>
+                <p class="status-declined"><%= booking.status %></p>
               <% end %>
-            <% end %>
-            <h3 class="subchapter"><span>Past bookings</span></h3>
-            <% @bookings.sort.reverse.each do |booking| %>
-              <% if booking.desk.user == current_user %>
-                <% if booking.status == 'accepted' || booking.status == 'denied' %>
-                  <div class="card-booking">
-                    <% if booking.desk.photos.any? %>
-                      <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>
-                    <% else %>
-                      <%= image_tag 'computer.jpg', id: "desk-thumbnail" %>
-                    <% end %>
-                    <div class="booking-summary">
-                      <p><strong><%= booking.desk.title %></strong></p>
-                      <p>Price: <%= humanized_money_with_symbol(booking.amount) %></p>
-                      <p><%= booking.desk.address.split(',').pop(3).first %></p>
-                      <p><%= booking.date.to_formatted_s(:long) %></p>
-                    </div>
-                    <div class="right">
-                      <% if booking.status == 'accepted' %>
-                        <p class="status-accepted"><%= booking.status %></p>
-                      <% else %>
-                        <p class="status-declined"><%= booking.status %></p>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
-          </b-card-text>
-        </b-tab>
-      </b-tabs>
-    </b-card>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
+</div>
+
