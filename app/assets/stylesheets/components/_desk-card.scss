@@ -45,3 +45,33 @@
   color: #C8C6C6;
 }
 
+// ----------------------------------
+
+.desk-reviews {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  height: 180px;
+
+}
+
+.desk-review {
+  height: 100%;
+  width: 170px;
+  text-align: center;
+  border: 0;
+  padding: 10px;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.25);
+}
+
+.desk-review-content {
+  height: 90px;
+}
+
+.desk-review-name {
+  line-height: 1;
+  margin-top: 0;
+  color: black;
+  padding: 3px;
+}
