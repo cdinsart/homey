@@ -19,7 +19,6 @@
       <%= link_to 'SAVE', "#", class: "btn-main", id: "next-btn", data: {url: desk_path(@desk), title: "Your desk has been saved!" } %>
     <% end %>
     <div class="row">
-      <%= @photos.count %>
       <% @photos.each do |photo| %>
       <div class="col-6">
         <%= cl_image_tag photo.data, id: "upload_photo" %>
