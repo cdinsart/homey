@@ -6,6 +6,7 @@ class DeskFeaturesController < ApplicationController
 
   def new
     @desk = Desk.find(params[:desk_id])
+    @back_link = edit_desk_path(@desk)
     @desk_feature = DeskFeature.new
     @features = Feature.all
   end

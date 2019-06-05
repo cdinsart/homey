@@ -2,7 +2,7 @@
   <h1 class="mt-4 mb-3">Booking Summary</h1>
   <h3><%= @booking.desk.title %></h3>
   <p><%= @booking.desk.description %></p>
-  <p>Location:<%= @booking.desk.address.split(',').pop(3).first %></p>
+  <p><strong>Location:</strong><%= @booking.desk.address.split(',').pop(3).first %></p>
   <% if @desk_rating.present? %>
     <% @desk_rating.times do %>
       <span class="homey-star">☆</span>
@@ -15,7 +15,7 @@
       <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
   <% end %>
-  <p>Date: <%= @booking.date.to_formatted_s(:long) %></p>
+  <p><strong>Date:</strong> <%= @booking.date.to_formatted_s(:long) %></p>
   <h3 class="underline mt-4"><span>Price:</span> <%= humanized_money_with_symbol(@booking.amount) %></h3>
   <h3>Write a message to your host (optional): </h3>
   <textarea class="border" style="width: 100%"></textarea>

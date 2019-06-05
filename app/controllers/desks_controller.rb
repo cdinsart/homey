@@ -18,6 +18,7 @@ class DesksController < ApplicationController
 
   def show
     # photo per desk
+    @back_link = desks_path
     @photos = Photo.where(desk: @desk)
     @booking = Booking.new
     #show only the active desks
@@ -70,7 +71,7 @@ class DesksController < ApplicationController
 
   def update
     @desk.update(strong_params)
-    redirect_to desk_path(@desk)
+    redirect_to new_desk_desk_feature_path(@desk)
   end
 
   def destroy
