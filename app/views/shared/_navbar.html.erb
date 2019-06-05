@@ -1,7 +1,13 @@
   <div class="navbar">
+    <% if @back_link %>
+    <%= link_to "< Back", @back_link, class: "btn-back" %>
+    <% else %>
     <%= link_to root_path, class: "navbar-logo" do %>
     <%= image_tag "homeylogo.png" %>
     <% end %>
+    <% end %>
+
+
 
     <div class="navbar-buttons d-flex">
       <% if user_signed_in? %>

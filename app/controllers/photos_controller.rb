@@ -3,7 +3,8 @@ class PhotosController < ApplicationController
 
   def index
     @photo = Photo.new
-    @photos = Photo.where(desk: @desk)
+    @photos = @desk.photos
+    @back_link = new_desk_desk_feature_path(@desk)
   end
 
   def create
