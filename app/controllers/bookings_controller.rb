@@ -21,8 +21,15 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
     @booking.desk = @desk
     @booking.user = @user
-    @booking.am & @booking.pm ? @booking.amount = @desk.price : @booking.amount = @desk.price / 2
-    @booking.save ? (redirect_to booking_path(@booking)) : (render 'desk/show')
+    case [@booking.am, @booking.pm].count(true)
+    when 0
+      redirect_to desk_path(@desk), notice: 'Select at least one time slot' && return
+    when 1
+      @booking.amount = @desk.price / 2
+    when 2
+      @booking.amount = @desk.price
+    end
+    redirect_to (@booking.save ? booking_path(@booking) : desk_path(@desk))
   end
 
   def approved

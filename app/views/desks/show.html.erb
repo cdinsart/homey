@@ -141,16 +141,18 @@
       <div class="search-bar-show d-flex justify-content-between">
         <%= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker", value: params[:date] }, wrapper_html: { class: "datepicker-show" } %>
         <div class="timeslots">
-          <% if params[:am] == true %>
-            <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot active" }, required: false %>
-          <% else %>
-            <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot" }, required: false %>
-          <% end %>
+            <%= f.input :am, label: "AM", input_html: { class: "hidden", checked: params[:am].present? }, label_html: { class: params[:am] ? 'timeslot active' : 'timeslot' }, required: false %>
         </div>
         <div class="timeslots">
-          <%= f.input :pm, input_html: { class: "hidden", value: params[:pm] }, label: "PM", label_html: { class: "timeslot"}, required: false %>
+          <%= f.input :pm, label: "PM", input_html: { class: "hidden", checked: params[:pm].present? }, label_html: { class: params[:pm] ? 'timeslot active' : 'timeslot' }, required: false %>
         </div>
-        <%= f.button :submit, class: "btn-main-smaller", value: "Book | #{humanized_money_with_symbol(@desk.price)}", data: { disable_with: false } %>
+        <div hidden id="deskprice">
+          <%= humanized_money_with_symbol(@desk.price) %>
+        </div>
+        <div hidden id="halfdeskprice">
+          <%= humanized_money_with_symbol(@desk.price / 2) %>
+        </div>
+        <%= f.button :submit, class: "btn-main-smaller", id: 'book-submit', value: "Book", data: { disable_with: false } %>
       <% end %>
       </div>
   <% end %>
