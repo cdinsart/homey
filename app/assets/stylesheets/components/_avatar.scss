@@ -25,4 +25,20 @@
   height: 45px;
   margin-top: 7px;
   margin-left: 10px;
+  position: relative;
+}
+
+.notifications {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 57%;
+  color: white;
+  background-color: red;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
