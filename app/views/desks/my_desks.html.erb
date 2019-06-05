@@ -51,22 +51,22 @@
               <% if desk.reviews.any? %>
                 <div class="desk-review-rating" style="padding-left: 0px">
                   <% desk.desk_rating.times do %>
-                    <span class="homey-star">☆</span>
+                    <span class="homey-star"><i class="fas fa-star"></i></span>
                   <% end %>
                   <% (5-desk.desk_rating).times do %>
-                    <span class="grey-star">☆</span>
+                    <span class="grey-star"><i class="far fa-star"></i></span>
                   <% end %>
                 </div>
               <% else %>
-                <div class="rating">
-                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                <div class="rating grey-star">
+                  <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
                 </div>
               <% end %>
             </div>
         <% end %>
         <div class="edit-delete">
           <%= link_to image_tag('pencil.png', class: "pencil-edit"), edit_desk_path(desk), id: "btn-login-edit" %>
-          <%= link_to image_tag('delete.png', class: "bin-delete"), desk_path(desk), method: :delete, data: { confirm: 'Are you sure?'} %>
+          <%= link_to image_tag('delete.png', class: "bin-delete"), desk_path(desk), method: :delete, data: { confirm: "Are you sure you want to delete this desk?" } %>
         </div>
           </div>
       </div>
