@@ -19,12 +19,12 @@ initTyped();
 
 initAutocomplete();
 
-toggleTimeSlot()
+toggleTimeSlot();
+
 flatpickr(".datepicker", {
   disableMobile: true,
   altInput: true,
   altFormat: "F j",
-  defaultDate: "today",
   dateFormat: "Y-m-d"
 });
 

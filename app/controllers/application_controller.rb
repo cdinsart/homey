@@ -26,4 +26,13 @@ class ApplicationController < ActionController::Base
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
   end
+    # Store location to go back to the previous page
+  # def store_location
+  #   session[:return_to] = request.fullpath if request.get? and controller_name != "user_sessions" and controller_name != "sessions"
+  # end
+
+  # def redirect_back_or_default(default)
+  #   redirect_to(session[:return_to] || default)
+  # end
+
 end
