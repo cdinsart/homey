@@ -6,7 +6,7 @@
   <% end %>
 
   <% @desks.each do |desk| %>
-  <%= link_to desk_path(desk), class: "link-to-card" do %>
+  <%= link_to desk_path(desk, date: params[:date]), class: "link-to-card" do %>
       <div class="desk-card">
         <div class="carousel-wrap">
           <div id="carouselExampleControls-<%= desk.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -56,15 +56,15 @@
               <% if desk.reviews.any? %>
                 <div class="desk-review-rating" style="padding-left: 0px">
                   <% desk.desk_rating.times do %>
-                    <span class="homey-star">☆</span>
+                    <span class="homey-star"><i class="far fa-star"></i></span>
                   <% end %>
                   <% (5-desk.desk_rating).times do %>
-                    <span class="grey-star">☆</span>
+                    <span class="grey-star"><i class="far fa-star"></i></span>
                   <% end %>
                 </div>
               <% else %>
-                <div class="rating">
-                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                <div class="rating grey-star">
+                  <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
                 </div>
               <% end %>
 

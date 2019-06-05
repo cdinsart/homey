@@ -52,15 +52,15 @@
               <% if desk.reviews.any? %>
                 <div class="desk-review-rating" style="font-size: 60%;">
                   <% desk.desk_rating.times do %>
-                    <span class="homey-star">☆</span>
+                    <span class="homey-star"><i class="far fa-star"></i></span>
                   <% end %>
                   <% (5-desk.desk_rating).times do %>
-                    <span class="grey-star">☆</span>
+                    <span class="grey-star"><i class="far fa-star"></i></span>
                   <% end %>
                 </div>
               <% else %>
-                <div class="rating" style="font-size: 60%;">
-                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                <div class="rating grey-star" style="font-size: 60%;">
+                  <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
                 </div>
               <% end %>
               <p><%= humanized_money_with_symbol(desk.price) %> /day</p>

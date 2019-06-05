@@ -100,9 +100,19 @@
 }
 
 .homey-star {
+  margin-top: 0.5rem;
   color: $homey;
+  fill: $homey;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: $homey;
 }
 
 .grey-star {
+  margin-top: 0.5rem;
   color: #C8C6C6;
+}
+
+.description-chat {
+  width: 20px;
+  height: 20px;
 }

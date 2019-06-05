@@ -46,18 +46,17 @@
     <p><%= @desk.address %></p>
     <% if @desk_rating.present? %>
       <% @desk_rating.times do %>
-        <span class="homey-star">☆</span>
+        <span class="homey-star"><i class="fas fa-star"></i></span>
       <% end %>
       <% (5-@desk_rating).times do %>
-        <span class="grey-star">☆</span>
+        <span class="grey-star"><i class="far fa-star"></i></span>
       <% end %>
     <% else %>
-      <div class="rating" , style="margin-bottom: 20px">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      <div class="rating grey-star" , style="margin-bottom: 20px">
+        <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
       </div>
     <% end %>
-    <%#= image_tag ("chat.png") %>
-    <p id="desk-description"><%= @desk.description %></p>
+      <p id="desk-description"><%= @desk.description %></p>
   </div>
 
   <div class="desk-feature">
@@ -101,10 +100,10 @@
             <div class="desk-review text-left">
               <div class="desk-review-rating">
                 <% review.desk_rating.times do %>
-                  <span class="homey-star">☆</span>
+                  <span class="homey-star"><i class="far fa-star"></i></span>
                 <% end %>
                 <% (5-review.desk_rating).times do %>
-                  <span class="grey-star">☆</span>
+                  <span class="grey-star"><i class="far fa-star"></i></span>
                 <% end %>
               </div>
               <p class="desk-review-content font-italic">"<%= review.content %>"</p>
@@ -140,7 +139,7 @@
   <% if @desk.user != current_user %>
       <%= simple_form_for [@desk, @booking] do |f| %>
       <div class="search-bar-show d-flex justify-content-between">
-        <%= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker" }, placeholder: "19 Jan", wrapper_html: { class: "datepicker-show" } %>
+        <%= f.input :date, as: :string, label: false, required: true, input_html: { class: "datepicker" }, wrapper_html: { class: "datepicker-show" }, value: params[:date] %>
         <div class="timeslots">
           <%= f.input :am, label: "AM", input_html: { class: "hidden" }, label_html: { class: "timeslot"}, required: false %>
         </div>
