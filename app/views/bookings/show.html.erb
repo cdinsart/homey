@@ -39,7 +39,8 @@
     <script>
       document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
     </script>
-    <button type="submit" class="btn-main" id="next-btn">Request Booking</button>
+    <%#= link_to 'Request Booking', "#", class: "btn-main", id: "next-btn", data: {url: desk_path(@desk, title: "Your request has been sent!" } %>
+    <button type="submit" class="btn-main" id="next-btn" , data= "url: desk_path(@desk), title: Your desk has been saved!">Request Booking</button>
 
   <% end %>
 </div>
