@@ -19,9 +19,13 @@ initTyped();
 
 initAutocomplete();
 
-toggleTimeSlot()
-flatpickr(".datepicker", {
+toggleTimeSlot();
 
+flatpickr(".datepicker", {
+  disableMobile: true,
+  altInput: true,
+  altFormat: "F j",
+  dateFormat: "Y-m-d"
 });
 
 initMapbox();

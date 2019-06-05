@@ -9,11 +9,11 @@
     <div class="search-criteria">
       <input type="date" class="datepicker" name="date" placeholder="Date">
       <div class="timeslots">
-        <input type="checkbox" class="hidden" id="am" value="am">
-        <label for="am" class="timeslot">AM</label>
+        <input type="checkbox" class="hidden" id="am" name="am" value="true">
+        <label for="am" class="timeslot" >AM</label>
       </div>
       <div class="timeslots">
-        <input type="checkbox" class="hidden" id="pm" value="pm">
+        <input type="checkbox" class="hidden" id="pm" name="pm" value="true">
         <label for="pm" class="timeslot">PM</label>
       </div>
       <button type="submit" class="btn-main-sm">
@@ -52,15 +52,15 @@
               <% if desk.reviews.any? %>
                 <div class="desk-review-rating" style="font-size: 60%;">
                   <% desk.desk_rating.times do %>
-                    <span class="homey-star">☆</span>
+                    <span class="homey-star"><i class="far fa-star"></i></span>
                   <% end %>
                   <% (5-desk.desk_rating).times do %>
-                    <span class="grey-star">☆</span>
+                    <span class="grey-star"><i class="far fa-star"></i></span>
                   <% end %>
                 </div>
               <% else %>
-                <div class="rating" style="font-size: 60%;">
-                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                <div class="rating grey-star" style="font-size: 60%;">
+                  <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
                 </div>
               <% end %>
               <p><%= humanized_money_with_symbol(desk.price) %> /day</p>
