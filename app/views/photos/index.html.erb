@@ -16,7 +16,7 @@
       <%= f.button :submit, 'Add photo', class: "btn-login-lg" %>
       <br>
       <br>
-      <%= link_to 'NEXT >', desk_path(@desk), class: "btn-main", id: "next-btn" %>
+      <%= link_to 'SAVE', "#", class: "btn-main", id: "next-btn", data: {url: desk_path(@desk), title: "Your desk has been saved!" } %>
     <% end %>
     <div class="row">
       <%= @photos.count %>

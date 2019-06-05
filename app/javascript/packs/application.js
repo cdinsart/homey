@@ -15,7 +15,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initStarRating } from '../plugins/init_star_rating';
 
+import { initNotifications } from '../components/sweetalert';
+
 initTyped();
+initNotifications();
 
 initAutocomplete();
 
