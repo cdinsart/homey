@@ -5,14 +5,14 @@
   <p>Location:<%= @booking.desk.address.split(',').pop(3).first %></p>
   <% if @desk_rating.present? %>
     <% @desk_rating.times do %>
-      <span class="homey-star">☆</span>
+      <span class="homey-star"><i class="fas fa-star"></i></span>
     <% end %>
     <% (5-@desk_rating).times do %>
-      <span class="grey-star">☆</span>
+      <span class="grey-star"><i class="far fa-star"></i></span>
     <% end %>
   <% else %>
-    <div class="rating" , style="margin-bottom: 20px">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    <div class="rating grey-star" , style="margin-bottom: 20px">
+      <span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span><span><i class="far fa-star"></i></span>
     </div>
   <% end %>
   <p>Date: <%= @booking.date.to_formatted_s(:long) %></p>
