@@ -18,7 +18,6 @@ const successAndRedirect = () => {
         type: 'success',
         title: btn.dataset.title,
         showConfirmButton: true,
-        timer: 3500,
         allowOutsideClick: true,
         confirmButtonText: "Cool !",
         confirmButtonColor: "#28CC9E",
@@ -29,14 +28,26 @@ const successAndRedirect = () => {
 }
 
 const areYouSureNotification = () => {
-  if (false) {
-    Swal.fire({
-      position: 'center',
-      type: 'error',
-      title: 'Are you sure?',
-      showConfirmButton: false,
-      timer: 3500
+  const btns = document.querySelectorAll('[data-delete]')
+  btns.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      console.log(event)
+      event.preventDefault();
+      Swal.fire({
+        position: 'center',
+        type: 'warning',
+        title: 'Are you sure?',
+        showConfirmButton: true
+      })
+      .then(result => confirmed(result, btn))
     })
+  })
+}
+
+const confirmed = (result, btn) => {
+  if (result.value) {
+    btn.removeAttribute('data-delete');
+    // btn.click();
   }
 }
 

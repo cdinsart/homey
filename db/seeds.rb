@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Review.destroy_all
 Booking.destroy_all
 DeskFeature.destroy_all
 Feature.destroy_all
@@ -33,3 +34,12 @@ Feature.create!(name: 'Table light', icon_name: "Lamp")
 Feature.create!(name: 'Pen & Paper', icon_name: "Pen")
 # Feature.create!(name: 'People', icon_name: "Poeple")
 puts "finished the seed"
+
+addresses = ["Barcelona", "Amsterdam", "Paris", "Brussels", "London", "Milan"]
+
+100.times do
+  desk = Desk.create(user: user1, title: Faker::Artist.name, address: addresses.sample, price: rand(100), description: Faker::TvShows::GameOfThrones.quote)
+  Feature.all.sample(4).each do |feature|
+    DeskFeature.create(desk: desk, feature: feature)
+  end
+end

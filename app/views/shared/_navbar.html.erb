@@ -1,6 +1,8 @@
   <div class="navbar">
     <% if @back_link %>
-    <%= link_to "< Back", @back_link, class: "btn-back" %>
+    <%#= link_to "< Back", @back_link, class: "btn-back" %>
+    <%= link_to image_tag('back.png', class: "back"), @back_link %>
+    <%#= link_to image_tag('pencil.png', class: "pencil-edit"), edit_desk_path(desk), id: "btn-login-edit" %>
     <% else %>
     <%= link_to root_path, class: "navbar-logo" do %>
     <%= image_tag "homeylogo.png" %>
