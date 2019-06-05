@@ -34,5 +34,8 @@ class ApplicationController < ActionController::Base
   # def redirect_back_or_default(default)
   #   redirect_to(session[:return_to] || default)
   # end
+  def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 
 end
