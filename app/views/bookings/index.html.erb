@@ -29,7 +29,7 @@
                 <div class="right">
                   <p class="status-accepted"><%= booking.status %></p>
                 </div>
-              <% elsif booking.status == 'denied' %>
+              <% elsif booking.status == 'declined' %>
                 <div class="right">
                   <p class="status-declined"><%= booking.status %></p>
                 </div>
@@ -101,7 +101,7 @@
       <h3 class="subchapter"><span>Past bookings</span></h3>
       <% @bookings.sort.reverse.each do |booking| %>
         <% if booking.desk.user == current_user %>
-          <% if booking.status == 'accepted' || booking.status == 'denied' %>
+          <% if booking.status == 'accepted' || booking.status == 'declined' %>
             <div class="card-booking mb-2">
               <% if booking.desk.photos.any? %>
                 <%= cl_image_tag booking.desk.photos.first.data, id: "desk-thumbnail" %>

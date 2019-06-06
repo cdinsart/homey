@@ -1,0 +1,19 @@
+function updateDeskFeature(feature_id, new_href) {
+  const featureId = feature_id;
+  const featureCard = document.querySelector(`a[data-feature-id="${featureId}"]`);
+  const icon = featureCard.querySelector('svg');
+  icon.classList.toggle('fa-circle');
+  icon.classList.toggle('fa-check-circle');
+  const method = featureCard.dataset.method;
+  const new_method = (method === 'post' ? 'delete' : 'post');
+  featureCard.dataset.method = new_method;
+  featureCard.href = new_href;
+}
+
+function destroyDeskFeature() {
+  const feature_id = <%= @desk_feature.feature_id %>;
+  const href = '/desks/<%= @desk_feature.desk_id %>/desk_features?desk_feature%5Bfeature_id%5D=' + feature_id;
+  updateDeskFeature(feature_id, href);
+}
+
+destroyDeskFeature();

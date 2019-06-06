@@ -35,13 +35,13 @@ class BookingsController < ApplicationController
   def approved
     @booking.status = 'accepted'
     @booking.save
-    redirect_to bookings_path
+    redirect_to bookings_path(anchor: "host")
   end
 
   def denied
     @booking.status = 'declined'
     @booking.save
-    redirect_to bookings_path
+    redirect_to bookings_path(anchor: "host")
   end
 
   private

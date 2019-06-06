@@ -6,7 +6,7 @@
         <%= simple_form_for [@booking, @review] do |f| %>
           <div class="form-box">
             <%= f.input :content,
-                  class: 'form-input',
+                  class: 'form-input review-text',
                   placeholder: 'describe your experience',
                   label: false,
                   :input_html => { :rows => 4 } %>
