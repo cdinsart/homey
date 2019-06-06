@@ -2,23 +2,22 @@
   <div class="row">
     <div class="col-xs-12 col-md-9 col-lg-6">
       <div class="form-inputs">
-        <h1>Write a review about <%= @booking.desk.user.first_name.capitalize %>'s desk </h1>
+        <h2 class="mb-3">Write a review about <%= @booking.desk.user.first_name.capitalize %>'s desk </h2>
         <%= simple_form_for [@booking, @review] do |f| %>
-          <div class="form-box">
-            <%= f.input :content,
-                  class: 'form-input review-text',
-                  placeholder: 'describe your experience',
-                  label: false,
-                  :input_html => { :rows => 4 } %>
-          </div>
           <div>
             <%= f.input :desk_rating,
                   class: 'form-input',
                   collection: (1..5).to_a,
-                  label: false,
-                  prompt: '---select a rating---' %>
+                  label: false %>
           </div>
-          <%= f.submit "Send your review", class: 'btn-main' %>
+          <div class="form-box-description mb-3">
+            <%= f.input_field :content,
+                  class: "form-input",
+                  placeholder: 'Describe your experience',
+                  label: false,
+                  :input_html => { :rows => 4 } %>
+          </div>
+          <%= f.submit "Send your review", class: 'btn-main', id: "next-btn" %>
         <% end %>
       </div>
     </div>
