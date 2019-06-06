@@ -15,7 +15,7 @@
                 <div class="carousel-item active">
                   <%= cl_image_tag desk.photos.first.data, class: "d-block w-100", id: "index_desk_photo" %>
                 </div>
-                <% desk.photos.each do |photo| %>
+                <% desk.photos.drop(1).each do |photo| %>
                   <div class="carousel-item">
                     <%= cl_image_tag photo.data, class: "d-block w-100", id: "index_desk_photo" %>
                   </div>
