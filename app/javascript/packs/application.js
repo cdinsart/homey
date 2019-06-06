@@ -36,4 +36,15 @@ initMapbox();
 
 initStarRating();
 
-document.querySelector('.search-bar-show').addEventListener('change', setPriceButton);
+const searchBarShow = document.querySelector('.search-bar-show')
+if (searchBarShow) { searchBarShow.addEventListener('change', setPriceButton) }
+
+const tabs = document.querySelector('.nav-tabs');
+if (tabs) {
+  if (window.location.hash != "") {
+    console.log(window.location.hash);
+    const link = tabs.querySelector('a[href="' + window.location.hash + '"]');
+    link.click();
+  }
+}
+

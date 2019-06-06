@@ -12,7 +12,7 @@
 
     <% @features.each do |feature| %>
       <% if desk_feature = @desk.desk_features.find_by(feature_id: feature.id) %>
-        <%= link_to desk_feature_path(desk_feature), class: 'feature-link', :method => :delete do %>
+        <%= link_to desk_feature_path(desk_feature), class: 'feature-link', data: {feature_id: feature.id}, :method => :delete, remote: true do %>
           <div class="feature">
             <div>
             <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
@@ -22,7 +22,7 @@
           </div>
         <% end %>
       <% else %>
-        <%= link_to desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), class: 'feature-link', :method => :post do %>
+        <%= link_to desk_desk_features_path(@desk, desk_feature: { :feature_id => feature.id }), class: 'feature-link', data: {feature_id: feature.id}, :method => :post, remote: true do %>
             <div class="feature">
               <div>
               <%= image_tag "#{feature.icon_name}.png", class: "feature-icon" %>
