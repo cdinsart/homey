@@ -1,4 +1,5 @@
 meta_product_name: "Homey"
 meta_title: "HOMEY | Be Productive Anywhere"
 meta_description: "Find and Book a private workspace from people like you."
-meta_image: "landing3.jpg" # should exist in `app/assets/images/`
+meta_image: "landing3.jpg"
+meta_url: "http://www.homey.live" # should exist in `app/assets/images/`
