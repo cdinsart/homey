@@ -61,8 +61,9 @@
               <% if booking.status == 'accepted' %>
                 <div class="right">
                   <p class="status-accepted"><%= booking.status %></p>
-                  <%= link_to "leave a review", new_booking_review_path(booking), class: "btn-review" %>
+                  <%= link_to "leave a review", new_booking_review_path(booking), class: "btn-review", onclick: "return false;", data: { toggle: 'modal', target: "#review_#{booking.id}" } %>
                 </div>
+                <%= render partial: 'reviews/new', locals: { review: booking.reviews.new, booking: booking } %>
               <% end %>
             </div>
           <% end %>
