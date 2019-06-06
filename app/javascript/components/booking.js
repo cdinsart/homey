@@ -12,18 +12,15 @@ const setPriceButton = () => {
   const priceButton = document.getElementById('book-submit');
   const bookingBar = document.querySelector('.search-bar-show');
   const checkedBoxes = bookingBar.querySelectorAll('input[type=checkbox]:checked').length;
-  // console.log(checkedBoxes);
-  // console.log(deskPrice.innerHTML);
-  // console.log(halfDeskPrice.innerHTML);
   if (checkedBoxes == 0) {
     priceButton.value = "Book"
     priceButton.disabled = true
   } else if (checkedBoxes == 1) {
     priceButton.disabled = false
-    priceButton.value = "Book |"+halfDeskPrice.innerHTML
+    priceButton.value = "Book | " + halfDeskPrice.innerHTML.trim()
   } else {
     priceButton.disabled = false
-    priceButton.value = "Book |"+deskPrice.innerHTML
+    priceButton.value = "Book | " + deskPrice.innerHTML.trim()
   };
 };
 
