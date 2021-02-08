@@ -18,7 +18,7 @@ gem 'webpacker'
 # Adding gem to display photos from cloudinary
 gem 'cloudinary', '~> 1.9.1'
 # Adding gem to upload photos and link them to a model
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 # Search by location
 gem 'geocoder'
 # Adding monetize gem
